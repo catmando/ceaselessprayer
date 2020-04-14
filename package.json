@@ -2,8 +2,12 @@
   "name": "CeaselessPrayer",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.10",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.9.10",
     "@rails/webpacker": "5.0.1",
     "jquery": "^3.4.1",
+    "muicss": "^0.10.1",
     "react": "16",
     "react-dom": "16",
     "react-router": "^5.0.0",
