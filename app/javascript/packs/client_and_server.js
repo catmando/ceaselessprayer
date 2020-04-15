@@ -7,11 +7,6 @@ ReactRouterDOM = require('react-router-dom');  // react-router DOM interface
 ReactRailsUJS = require('react_ujs');          // interface to react-rails
 // to add additional NPM packages run `yarn add package-name@version`
 // then add the require here.
-//require('muicss/react');
-//import * as Mui from '@material-ui/core';
-//Mui.default = Mui;
-//global.Mui = Mui;
 Mui = require('@material-ui/core')
-//Mui.default = Mui;
 Icon = require('@material-ui/icons')
-//Icon.default = Icon
+Remarkable = require('remarkable').Remarkable

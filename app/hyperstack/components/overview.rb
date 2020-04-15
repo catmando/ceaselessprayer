@@ -1,9 +1,11 @@
 class Overview < HyperComponent
   def text
 <<OverviewText
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In ornare quam viverra orci sagittis eu volutpat odio.
+    Join people from around the world in prayer for God's mercy, our repentance, the granting of wisdom, compassion, healing and strength in this
+    time of trial.
 
-    Nec feugiat nisl pretium fusce id velit ut. Integer eget aliquet nibh praesent tristique magna sit. Arcu ac tortor dignissim convallis aenean et.
+    We invite you to pray with the help this simple app, just a few minutes a day.  We include a variety of prayers and helpful materials.  Let us light
+    up the map of the world in ceaseless prayer to our merciful Lord.
 OverviewText
   end
 
@@ -21,8 +23,10 @@ OverviewText
   end
 
   render do
-    DIV(style: { fontSize: font_size, marginBottom: 100 }) do # 20 works for w 360 h 640,
-      text.split("\n").each { |p| P { p }}
+    DIV(style: { fontSize: font_size, marginBottom: 100 }) do
+      Mui::Paper(elevation: 3, style: {padding: 5, marginTop: 5}) do
+        text.split("\n\n").each { |p| P(style: { marginTop: 0 }) { p } }
+      end
     end
   end
 end
