@@ -10,7 +10,9 @@ but I have always liked the story from the desert fathers where a monk explains 
 by praying when he can, and they relying on others to pray while he is eating or sleeping.
 
 Like this monk we are living in the world and while as individuals we may not yet be able to achieve unceasing prayer, together we can offer
-ceaseless prayers to God. *By the way the complete story is at the end of this page.*
+ceaseless prayers to God.
+
+*By the way the complete story is at the end of this page.*
 
 ## How does it work?
 
@@ -24,12 +26,27 @@ If your schedule is flexible, then have a look at the Schedule page.  You will s
 to one of those times and help fill in the gaps.  It's an honor system, and if you can't make that time, no worries, just come to the site some other
 time.  It will all work out.
 
-## How does that map work?
+## How long should I pray for?
+
+Its up to you.  If you go through the basic prayers on the site it will take only about 10 minutes.
+
+## How about my regular rule of prayer?
+
+Our intention with this site is to encourage you to add *additional* time to your prayer life, especially at times you might not normally
+pray.  If you do not already have a regular rule of prayer here are some resources to help you establish a daily rule of prayer:
+
++ [How Shold We Build Our Prayer Rule?](https://orthochristian.com/100366.html)
++ [A Sample Prayer Rule](https://www.orthodoxprayer.org/Prayer%20Rule.html)
++ [Reestablishing a Simple Prayer Rule - a Pod Cast](https://www.ancientfaith.com/podcasts/lawofthespirit/re_establishing_a_simple_prayer_rule)
+
+## How does that Map work?
 
 The map shows an approximation of where prayers have been offered in the last 24 hours.  The brighter the area, the more prayers have been said in that
 location.  We don't know or ask for your precise location, so the map is just an estimation, but together we can light up the world.
 
 ## How can I help?
+
+Pass the link to this site along to a friend, your priest, or anyone else you think might like to spend a few extra minutes a day in prayer.
 
 If you would like to contribute content to any of these pages then email support@ceaselessprayer.org with your suggestions.
 
