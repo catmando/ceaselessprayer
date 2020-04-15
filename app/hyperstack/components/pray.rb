@@ -1,5 +1,246 @@
-class Pray < HyperComponent
-  render(DIV, style: { marginTop: 75 }) do
-    'The Pray Page'
+class Pray < Markdown
+MARKDOWN = <<MARKDOWN
+<h1 align=center>Ceaseless Prayer</h1>
+
+The following are a selection of prayers for you to use.
+While you spend time on this page you will automatically be contributing to lighting up the map on the home page.
+
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">The Trisagion Prayers</summary>
+
+In the Name of the Father, and of the Son, and of the Holy Spirit. Amen.
+
+Glory to Thee, our God, glory to Thee!
+
+O Heavenly King, the Comforter, the Spirit of Truth, Who art everywhere and fillest all things; Treasury of Blessings, and Giver of Life - come and abide in us, and cleanse us from every impurity, and save our souls, O Good One.
+
+Holy God! Holy Mighty! Holy Immortal! Have mercy on us. (3x)
+
+Glory to the Father, and to the Son, and to the Holy Spirit, now and ever and unto ages of ages. Amen.
+
+O most Holy Trinity, have mercy on us. O Lord, cleanse us from our sins. O Master, pardon our transgressions. O Holy One, visit and heal our infirmities, for Thy name’s sake.
+
+Lord, have mercy. (3x)
+
+Glory to the Father, and to the Son, and to the Holy Spirit, now and ever and unto ages of ages. Amen.
+
+Our Father, Who art in Heaven, hallowed be Thy name. Thy Kingdom come; Thy will be done, on earth as it is in Heaven. Give us this day our daily bread; and forgive us our trespasses, as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil.
+
+Lord, have mercy. (12x)
+
+Glory to the Father, and to the Son, and to the Holy Spirit, now and ever and unto ages of ages. Amen.
+Come! Let us worship God, our King!
+Come! Let us worship and fall down before Christ, our King and our God!
+Come! Let us worship and fall down before Christ Himself, our King and our God!
+</details>
+
+~~~~
+
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">A Psalm of Repentance (Psalm 51)</summary>
+
+Have mercy on me, O God, according to Thy steadfast love; according to Thy abundant mercy, blot out my transgressions. Wash me thoroughly from my iniquity and cleanse me from my sin!
+
+For I know my transgressions and my sin is ever before me.
+
+Against Thee, Thee only, have I sinned, and done that which is evil in Thy sight, so that Thou art justified in Thy sentence and blameless in Thy judgment.
+
+Behold! I was brought forth in iniquity and in sin did my mother conceive me.
+
+Behold! Thou desirest truth in the inward being; therefore teach me wisdom in my secret heart.
+
+Purge me with hyssop, and I shall be clean; wash me, and I shall be whiter than snow.
+
+Fill me with joy and gladness; let the bones which Thou hast broken rejoice.
+
+Hide Thy face from my sins and blot out all my iniquities.
+
+Create in me a clean heart, O God, and put a new and right spirit within me.
+
+Cast me not away from Thy presence and take not Thy Holy Spirit from me.
+
+Restore to me the joy of Thy salvation and uphold me with a willing Spirit.
+
+Then I will teach transgressors Thy ways and sinners will return to Thee.
+
+Deliver me from bloodguiltiness, O God, Thou God of my salvation, and my tongue will sing aloud of Thy deliverance.
+
+O Lord, open Thou my lips, and my mouth shall show forth Thy praise.
+
+For Thou hast no delight in sacrifice; were I to give a burnt offering, Thou wouldst not be pleased.
+
+The sacrifice acceptable to God is a broken spirit; a broken and contrite heart, O God, Thou wilt not despise.
+
+Do good to Zion in Thy good pleasure; rebuild the walls of Jerusalem.
+
+Then wilt Thou delight in right sacrifices, in burnt offerings and whole burnt offerings; then bulls will be offered on Thy altar.
+</details>
+
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">
+Prayer for the Pandemic of 2019</summary>
+
+O God Almighty, Lord of heaven and earth, and of all creation visible and invisible, in thine ineffable goodness, look down upon us, thy people gathered in thy Holy Name. Be our helper and defender in this day of affliction. Thou knowest our weakness. Thou hearest our cry in repentance and contrition of heart. O Lord who lovest mankind, deliver us from the impending threat of the Corona Virus. Send thine angel to watch over us and protect us. Grant health and recovery to those suffering from this virus. Guide the hands of physicians and preserve those who are healthy. Enable us to continue to serve our suffering brothers and sisters in peace that together we may glorify thy most honorable and majestic name of the Father and of the Son and of the Holy Spirit, now and ever and unto ages of ages.
+</details>
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">
+​Prayer for Protection against a Pandemic</summary>
+
+Lord Jesus Christ our God, You Who created human beings with utter goodness, the healer of our souls and bodies, heed now the supplication of Your children, and save us from the impeding threat against the world. For this affliction has spread ferociously and the fear of death has surrounded us. Many have suffered and many have passed on to repose, and there is none to save us, except You, O Lord.
+
+We know, Merciful Lord, that all this will cultivate our faith, as we implore you, crying out in utter repentance. Undo, O Lord, the dangerous effects of the virus and heal all people, as a most Gracious Lord. For those, who repose in peace, give rest in Your heavenly abode. Grant peace to the world, so that all people know that You are the Only God, and your faithful are not bound by death, but live forever.
+
+For You are our hope and our whole life is in Your benevolent hands, and to You we give glory, as well as to the Father and the Holy Spirit, now and forever and unto the ages of ages. Amen.
+</details>
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">A Complete Reader's Service</summary>
+
+*This service forms a complete prayer that can be said alone or with your household.*
+
+**Everyone:** O God, cleanse me a sinner and have mercy on me! (3 times)
+
+**Reader:** Through the prayers of our Holy Fathers, O Lord Jesus Christ our God,
+have mercy on us.
+
+**Everyone:** Holy God, Holy Mighty, Holy Immortal, have mercy on us. (3 times)
+
+Glory to the Father, and to the Son, and to the Holy Spirit, now and ever and unto
+ages of ages. Amen.
+
+O most Holy Trinity, have mercy on us. Lord, cleanse us from our sins. Master,
+pardon our transgressions. Holy One, visit and heal our infirmities, for Thy name’s
+sake.
+
+Lord, have mercy. (3 times)
+
+Glory to the Father, and to the Son, and to the Holy Spirit, now and ever and unto
+ages of ages. Amen.
+
+Our Father Who art in heaven, hallowed be Thy name. Thy Kingdom come. Thy
+will be done, on earth as it is in heaven. Give us this day our daily bread; and
+forgive us our trespasses, as we forgive those who trespass against us; and lead
+us not into temptation, but deliver us from evil.
+
+**Reader:** Through the prayers of our Holy Fathers, O Lord Jesus Christ our God,
+have mercy on us.
+
+**Everyone:** Amen. Lord, have mercy. (12 times)
+
+Glory to the Father, and to the Son, and to the Holy Spirit, now and ever and unto
+ages of ages. Amen.
+
+Come, let us worship God, our King!
+Come, let us worship and fall down before Christ our King and our God!
+Come, let us worship and fall down before Christ Himself, our King and our God!
+
+#### Troparion (Tone 4)
+
+Thou alone can help us, O Christ! Visit Thy suffering servants! Deliver them from
+sickness and affliction! Raise them up to sing Thy praise, O Lover of man, through
+the prayers of the Theotokos.
+Glory to the Father, and to the Son, and to the Holy Spirit, now and ever and unto
+ages of ages. Amen.
+
+#### Kontakion (Tone 2)
+
+O Savior, Thou healed the paralytic carried to Thee! Thou raised Peter’s motherin-law from her infirmities! Take pity on Thy servants! Heal their sicknesses and
+forgive all their sins! Thou hast borne our afflictions, O Mighty Lord. Thou hast
+carried all our sorrows, O Lover of man!
+
+#### Litany of Fervent Supplication
+
+**Reader:** Have mercy on us, O God, according to Thy great goodness, we pray
+Thee, hearken and have mercy.
+
+**Everyone:** Lord, have mercy. (3 times)
+
+**Reader:** Again we pray for our Metropolitan *name*, our Archbishop *name*,
+the priests, deacons, and all other clergy, and all our brethren in Christ.
+
+**Everyone:** Lord, have mercy. (3 times)
+
+**Reader:** Again we pray for the President of our country, for all civil authorities, and
+for the armed forces.
+
+**Everyone:** Lord, have mercy. (3 times)
+
+**Reader:** Again we pray for mercy, life, peace, health, salvation, visitation, and the
+pardon and remission of sins for the servants of God (names of those we wish to
+pray for), who are under the impending threat of the Coronavirus, those who are
+suffering and those who are recovering from this affliction.
+
+**Everyone:** Lord, have mercy. (3 times)
+
+**Reader:** Again we pray that He will protect this home and this city and every city
+and countryside from the Coronavirus, pestilence, earthquake, flood, fire, the
+sword, the invasion of enemies, and from civil war; and that our good God will turn
+away from us all wrath stirred up against us, and deliver us from all His righteous
+chastisement which impends upon us, and have mercy on us.
+
+**Everyone:** Lord, have mercy. (3 times)
+
+**Reader:** Again we pray that the Lord God will hearken to the voice of the petition
+of us sinners, and show mercy upon us.
+
+**Everyone:** Lord, have mercy. (3 times)
+
+**Reader:** Through the prayers of our Holy Fathers, Lord Jesus Christ our God, have
+mercy on us.
+
+**Everyone:** Amen.
+
+**Reader:** Let us pray to the Lord.
+
+**Everyone:** Lord, have mercy.
+
+**Reader:** O God Almighty, Lord of heaven and earth, and of all creation visible and
+invisible, in Thine ineffable goodness, look down upon us, Thy people gathered in
+Thy Holy Name. Be our helper and defender in this day of affliction. Thou knowest
+our weakness. Thou hearest our cry in repentance and contrition of heart. O Lord
+who lovest mankind, deliver us from the impending threat of the Coronavirus. Send
+Thine angel to watch over us and protect us. Grant health and recovery to those
+suffering from this virus. Guide the hands of physicians and nurses, and preserve
+those who are healthy that we may continue to serve our suffering brothers and
+sisters in peace, that together we may glorify thy most honorable and majestic
+name of the Father and of the Son and of the Holy Spirit, now and ever and unto
+ages of ages.
+
+**Everyone:** Amen.
+
+**Everyone:** Glory to the Father, and to the Son, and to the Holy Spirit, now and
+ever and unto ages of ages. Amen. Lord, have mercy. Lord, have mercy. Lord,
+have mercy. O Lord, bless us!
+
+**Reader:** Through the prayers of our Holy Fathers, through the prayers of the Most
+Holy Theotokos and Ever-Virgin Mary, by the power of the precious and lifecreating Cross, through the protection of the honorable bodiless Powers of
+Heaven, through the prayers of the holy, glorious Prophet, Forerunner and Baptist
+John, through the prayers of the holy, glorious and all-laudable Apostles, through
+the prayers of all the Saints who have shown forth in North America, through the
+prayers of all the faithhealing unmercenary Physicians, the Saints (names) whom
+we commemorate today, of the holy and righteous Ancestors of God Joachim and
+Anna, and of all the Saints, Lord Jesus Christ our God, have mercy on us and
+save us.
+
+**Everyone:** Amen.
+
+*Family members come and venerate the precious cross and Icons in our Icon
+Corner*
+
+**Reader:** Through the prayers of our Holy Fathers, Lord Jesus Christ our God, have
+mercy on us and save us.
+
+**Everyone:** Amen. Lord, have mercy. Lord, have mercy. Lord, have mercy.
+</details>
+MARKDOWN
+
+  render(DIV, style: { marginTop: 75, marginBottom: 100 }) do
+    papers
+    # Mui::Paper(elevation: 3, style: {padding: 5, marginTop: 5, marginBottom: 100}) do
+    #   H1(align: :center) { 'Ceaseless Prayer' }
+    #   P { 'The following are a selection of prayers for you to use.  While you spend time on this page you will automatically be contributing to lighting up the map on the home page.'}
+    # end
+    #
+    # Mui::Paper(elevation: 3, style: {padding: 5, marginTop: 5, marginBottom: 100}) do
+    #   Text()
+    # end
   end
 end

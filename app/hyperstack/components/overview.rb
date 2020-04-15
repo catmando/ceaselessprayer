@@ -1,10 +1,10 @@
 class Overview < HyperComponent
   def text
 <<OverviewText
-    Join people from around the world in prayer for God's mercy, our repentance, the granting of wisdom, compassion, healing and strength in this
+    Join people from around the world in prayer for God's mercy, for our repentance, and the granting of wisdom, compassion, healing and strength in this
     time of trial.
 
-    We invite you to pray with the help this simple app, just a few minutes a day.  We include a variety of prayers and helpful materials.  Let us light
+    We invite you to pray with the help of this simple app, just a few minutes a day.  We include a variety of prayers and helpful materials.  Let us light
     up the map of the world in ceaseless prayer to our merciful Lord.
 OverviewText
   end

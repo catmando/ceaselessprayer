@@ -1,6 +1,5 @@
-class About < HyperComponent
-  class Text < Markdown
-    MARKDOWN = <<MARKDOWN
+class About < Markdown
+MARKDOWN = <<MARKDOWN
 ## Why *ceaselessprayer.org*?
 This little website was created to encourage and assist all of us to pray together and without ceasing
 for God's mercy on us in this time of crisis.
@@ -9,14 +8,14 @@ In the book of Thessalonians Paul tells us to pray without ceasing.  There are m
 but I have always liked the story from the desert fathers where a monk explains that he achieves unceasing prayer
 by praying when he can, and they relying on others to pray while he is eating or sleeping.
 
+*By the way the complete story is at the end of this page.*
+
 Like this monk we are living in the world and while as individuals we may not yet be able to achieve unceasing prayer, together we can offer
 ceaseless prayers to God.
 
-*By the way the complete story is at the end of this page.*
-
 ## How does it work?
 
-Its simple!  When you go to the prayer page you will find orthodox prayers old and new suitable for this time of crises.  You can use the site as
+Its simple!  When you go to the prayer page you will find orthodox prayers old and new suitable for this time of crisis.  You can use the site as
 a little electronic prayer book, and while you pray it will help make that world map light up.  No login is needed, and we don't ask for your email
 or spam you in any way.
 
@@ -28,7 +27,7 @@ time.  It will all work out.
 
 ## How long should I pray for?
 
-Its up to you.  If you go through the basic prayers on the site it will take only about 10 minutes.
+It's up to you.  If you go through the basic prayers on the site it will take only about 10 minutes.
 
 ## How about my regular rule of prayer?
 
@@ -106,11 +105,8 @@ pennies outside the door prays for me while I am eating and sleeping:
 
 **and so by God’s grace I fulfil the text, “Pray without ceasing” (1 Thess. 5:17).**’
 MARKDOWN
-  end
 
   render(DIV, style: { marginTop: 75 }) do
-    Mui::Paper(elevation: 3, style: {padding: 5, marginTop: 5, marginBottom: 100}) do
-      Text()
-    end
+    papers
   end
 end
