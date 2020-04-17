@@ -1,4 +1,4 @@
-class Window
+class WindowDims
   include Hyperstack::State::Observable
   class << self
     observer :width do

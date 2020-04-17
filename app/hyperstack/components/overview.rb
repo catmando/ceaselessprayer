@@ -10,10 +10,10 @@ OverviewText
   end
 
   def font_size
-    if Window.height * Window.width > 1_000_000
+    if WindowDims.height * WindowDims.width > 1_000_000
       puts "font_size: 30"
       30
-    elsif Window.height * Window.width > 400 * 700
+    elsif WindowDims.height * WindowDims.width > 400 * 700
       puts "font_size: 20"
       20
     else

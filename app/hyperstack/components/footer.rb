@@ -3,7 +3,7 @@ class Footer < HyperComponent
   def link(path, text)
     return if path == App.location.pathname
 
-    size = Window.width > 1000 ? :large : :medium
+    size = WindowDims.width > 1000 ? :large : :medium
     Mui::Grid(:item, xs: 4) do
       Mui::Button(:fullWidth, size: size, variant: :contained, color: :primary) { text }
       .on(:click) { mutate App.history.push(path) }

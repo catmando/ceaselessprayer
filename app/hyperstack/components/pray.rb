@@ -232,15 +232,35 @@ mercy on us and save us.
 </details>
 MARKDOWN
 
-  render(DIV, style: { marginTop: 75, marginBottom: 100 }) do
-    papers
-    # Mui::Paper(elevation: 3, style: {padding: 5, marginTop: 5, marginBottom: 100}) do
-    #   H1(align: :center) { 'Ceaseless Prayer' }
-    #   P { 'The following are a selection of prayers for you to use.  While you spend time on this page you will automatically be contributing to lighting up the map on the home page.'}
-    # end
-    #
-    # Mui::Paper(elevation: 3, style: {padding: 5, marginTop: 5, marginBottom: 100}) do
-    #   Text()
-    # end
+  def record_prayer
+    return unless @still_praying
+
+    Geolocation.locate.then do |data|
+      Prayer.create(lat: data[:latitude].round(5), long: data[:longitude].round(5))
+    end
+    @still_praying = nil
+  end
+
+  after_mount do
+    @still_praying = true
+    record_prayer
+    every(15.seconds) { record_prayer }
+    @handle_scroll = -> { @still_praying = true }
+    `window.addEventListener('scroll', #{@handle_scroll})`
+  end
+
+  before_unmount do
+    `window.removeEventListener('scroll', #{@handle_scroll})`
+  end
+
+  def save_top
+    # don't save the top (reset to 0) until we figure out how to save
+    # which collapsed tabs are open
+  end
+
+  render do
+    DIV(class: :page, style: { marginTop: 75, marginBottom: 100 }) do
+      papers
+    end.on(:click) { @still_praying = true}
   end
 end

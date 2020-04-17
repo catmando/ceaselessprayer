@@ -10,9 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_04_16_025042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hyperstack_connections", force: :cascade do |t|
+    t.string "channel"
+    t.string "session"
+    t.datetime "created_at"
+    t.datetime "expires_at"
+    t.datetime "refresh_at"
+  end
+
+  create_table "hyperstack_queued_messages", force: :cascade do |t|
+    t.text "data"
+    t.integer "connection_id"
+  end
+
+  create_table "prayers", force: :cascade do |t|
+    t.string "ip"
+    t.decimal "lat"
+    t.decimal "long"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

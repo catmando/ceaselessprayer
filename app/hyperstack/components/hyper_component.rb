@@ -7,6 +7,24 @@ class HyperComponent
   # The following turns on the new style param accessor
   # i.e. param :foo is accessed by the foo method
   param_accessor_style :accessors
+
+  class << self
+    def set_top
+      jQ[`window`].scrollTop(@saved_top || 0)
+    end
+
+    def save_top
+      @saved_top = jQ[`window`].scrollTop
+    end
+  end
+
+  after_mount do
+    self.class.set_top
+  end
+
+  before_unmount do
+    self.class.save_top
+  end
 end
 
 module Hyperstack
