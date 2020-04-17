@@ -14,4 +14,4 @@
     # allow remote access to all scopes - i.e. you can count or get a list of ids
     # for any scope or relationship
     ApplicationRecord.regulate_scope :all
-  end unless Rails.env.production?
+  end # unless Rails.env.production?
