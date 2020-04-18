@@ -1,13 +1,15 @@
 class Done < Markdown
 MARKDOWN = <<MARKDOWN
-### Coming Soon!
-Thanks for Praying with Us!
+### Thanks for Praying with Us!
 
 What's next?
 
-+ Come back often!  Help us light up the world!
-+ Tell you friends.
-+ Checkout the About Page for more info.
++ Come back often!  Light up the world!
++ Tell you friends!
++ Checkout the About Page...
+
+*Click the menu on the top left corner for more information.
+More pages such as resources, and scheduling are coming soon.*
 
 MARKDOWN
   render do
