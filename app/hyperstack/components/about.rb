@@ -47,7 +47,7 @@ location.  We don't know or ask for your precise location, so the map is just an
 
 Pass the link to this site along to a friend, your priest, or anyone else you think might like to spend a few extra minutes a day in prayer.
 
-If you would like to contribute content to any of these pages then email support@ceaselessprayer.org with your suggestions.
+If you would like to contribute content to any of these pages then email ceaselessprayers@gmail.com with your suggestions.
 
 If you are a developer, graphic or UX designer and would like to help improve the site, please visit our [github page](https://github.com/catmando/ceaselessprayer) for more info.
 

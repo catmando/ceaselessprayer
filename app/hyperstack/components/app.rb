@@ -8,6 +8,7 @@ class App < HyperComponent
       Route('/pray',     mounts: Pray)
       Route('/schedule', mounts: Schedule)
       Route('/home',     mounts: Home)
+      Route('/done',     mounts: Done)
       Route('/', exact: true) { mutate Redirect('/home') }
       Footer() unless App.location.pathname == '/'
     end
