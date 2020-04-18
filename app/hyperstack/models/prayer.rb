@@ -1,5 +1,5 @@
 class Prayer < ApplicationRecord
-  scope :recent, -> { where('created_at > ?', Time.now - 1.day)}
+  scope :recent, ->(_ts = nil) { where('created_at > ?', Time.now - 1.day)}
 
   def currency
     [(24.hours - (Time.now - created_at)) / 1.hour.to_f, 0].max rescue 24
@@ -13,11 +13,11 @@ class Prayer < ApplicationRecord
     }
   end
 
-  def self.as_geojson
+  def self.as_geojson(ts)
     {
       type: 'FeatureCollection',
       crs: { type: :name, properties: { name: 'ceaselessprayer-recent-prayers' } },
-      features: Prayer.recent.collect(&:as_feature)
+      features: Prayer.recent(ts.to_s).collect(&:as_feature).tap { |x| puts x }
     }
   end
 end

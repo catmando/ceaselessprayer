@@ -236,7 +236,7 @@ MARKDOWN
     return unless @still_praying
 
     Geolocation.locate.then do |data|
-      Prayer.create(lat: data[:latitude].round(5), long: data[:longitude].round(5))
+      Prayer.create(ip: data[:ip], lat: data[:latitude].round(5), long: data[:longitude].round(5))
     end
     @still_praying = nil
   end
@@ -261,6 +261,6 @@ MARKDOWN
   render do
     DIV(class: :page, style: { marginTop: 75, marginBottom: 100 }) do
       papers
-    end.on(:click) { @still_praying = true}
+    end.on(:click) { @still_praying = true }
   end
 end

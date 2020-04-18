@@ -8,6 +8,7 @@ class Map < HyperComponent
   end
 
   def update_map
+    puts "update_map"
     # return unless @map || `#{@map}.getSource('recent-prayers') != undefined`
     `#{@map}.getSource('recent-prayers').setData(#{@geojson.to_n})`
   rescue Exception => e
@@ -15,6 +16,7 @@ class Map < HyperComponent
   end
 
   def draw_map
+    puts "draw map"
     return if @map
 
     map = nil
@@ -93,11 +95,12 @@ class Map < HyperComponent
     `#{@map}.panBy([100, 0], {duration: 10000, easing: function(x) { return x }})`
   end
 
+  before_mount { @time_stamp = Time.now }
   after_mount  :draw_map
   after_update :update_map
 
   render do
-    @geojson = Prayer.as_geojson
+    @geojson = Prayer.as_geojson(@time_stamp)
     DIV(style: { position: :relative, marginTop: 5, width: '100%', height: height}) do
       DIV(id: :map, style: { position: :absolute, top: 0, bottom: 0, width: '100%'})
     end
