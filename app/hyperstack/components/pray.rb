@@ -114,6 +114,38 @@ Grant peace to the world, so that all people know that You are the Only God, and
 For You are our hope and our whole life is in Your benevolent hands, and to You we give glory, as well as to the Father and the Holy Spirit, now and forever and unto the ages of ages. Amen.
 </details>
 ~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Prayer for one who is sick</summary>
+
+Heavenly Father, physician of our souls and bodies, Who have sent Your only-begotten Son and our Lord Jesus Christ to heal every sickness and infirmity,
+visit and heal also Your servant(s) _(names)_ from all physical and spiritual ailments through the grace of Your Christ.
+
+Grant _him/her/them_ patience in this sickness, strength of body and spirit, and recovery of health.
+
+Lord, You have taught us through Your word to pray for each other that we may be healed.
+I pray, heal Your servant(s) _(names)_ and grant to _him/her/them_ the gift of complete health.
+
+For You are the source of healing and to You I give glory, Father, Son and Holy Spirit.
+
+Amen.
+</details>
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Another prayer for the sick</summary>
+
+O Lord our God, Who by a word alone did heal all diseases, Who did cure the kinswoman of Peter;
+
+You Who chastise with pity and heal according to Your goodness;
+
+Who are able to put aside every sickness and infirmity, do You Yourself, the same Lord, grant aid
+to Your servant(s) _(names)_ and cure _him/her/them_ of every sickness of which _him/her/them_ is grieved;
+
+Send down upon _him/her/them_ Your great mercy, and if it be Your will, give to _him/her/them_ health and a complete recovery;
+
+For You are the Physician of our souls and bodies, and to You do we send up Glory:
+
+to the Father, Son and Holy Spirit, Both now and forever, and to the ages of ages.
+
+Amen.
+~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">A Complete Reader's Service</summary>
 
 *This service forms a complete prayer that can be said alone or with your household.*
@@ -237,7 +269,7 @@ Holy Theotokos and Ever-Virgin Mary, by the power of the precious and lifecreati
 Heaven, through the prayers of the holy, glorious Prophet, Forerunner and Baptist
 John, through the prayers of the holy, glorious and all-laudable Apostles, through
 the prayers of all the Saints who have shown forth in North America, through the
-prayers of all the faithhealing unmercenary Physicians, the Saints (names) whom
+prayers of all the faithhealing unmercenary Physicians, the Saints _(names)_ whom
 we commemorate today, of the holy and righteous Ancestors of God Joachim and
 Anna, and of all the Saints, Lord Jesus Christ our God, have mercy on us and
 save us.
@@ -252,6 +284,73 @@ mercy on us and save us.
 
 **Everyone:** Amen. Lord, have mercy. Lord, have mercy. Lord, have mercy.
 </details>
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Psalm 23</summary>
+
+The Lord is my shepherd;
+I shall not want.
+
+He makes me to lie down in green pastures;
+
+He leads me beside the still waters.
+
+He restores my soul;
+
+He leads me in the paths of righteousness
+for His name’s sake.
+
+Yea, though I walk through the valley of the shadow of death,
+I will fear no evil;
+
+For You are with me;
+Your rod and Your staff, they comfort me.
+
+You prepare a table before me in the presence of my enemies;
+
+You anoint my head with oil;
+
+My cup runs over.
+
+Surely goodness and mercy shall follow me
+all the days of my life;
+
+And I will dwell in the house of the Lord
+forever.
+</details>
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">A meditation</summary>
+
+I watch what is happening and I increasingly understand that mankind urgently needed such a shake-up!
+
+Think - how we have lived our lives for last decades? The Coronavirus will make you rethink your whole life!  Mankind will live differently after the victory over the virus!
+
+Nature and our Lord are tired of our contemptuous attitude towards our health and the environment!
+We've stopped being human! Hubris overtook our minds and we began to feel that we are the masters of the world!
+But the tiny virus quickly put us in our place!
+
+The virus does not spare neither the wealthy nor the politicians, making it clear that they cannot escape from it on their private jets nor can they buy health for money!
+
+And as I thought recently: We lost the ability to live as families and so the disease shut us up in our homes so we could learn to live as a family once again.
+
+We stopped respecting our elderly people, so we got this disease to remember how vulnerable they are.
+
+We stopped appreciating health workers and got the disease to understand that they are irreplaceable.
+
+We stopped respecting teachers so the disease closed schools so parents could appreciate how hard it is to teach.
+
+We spent our free time in shopping malls and the disease closed them so that we realized that happiness was not in material things.
+
+We spent a lot of time on our looks and comparing ourselves to others, so the disease hid our faces with masks to make us realize that beauty is not skin deep.
+
+This disease takes a great deal away from us, but at the same time gives us an opportunity to grow in understanding of what is most important in our lives!
+
+We were given a disease tailored to our needs!
+
+May God help us to humble ourselves so that humility will give us wisdom.
+
+*Archpriest Victor Potapov, the rector of St. John the Baptist Russian Orthodox Cathedral in Washington, D.C.*
+</details>
+
 MARKDOWN
 
   def record_prayer
