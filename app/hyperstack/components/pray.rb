@@ -257,9 +257,7 @@ MARKDOWN
   def record_prayer
     return unless @still_praying
 
-    Geolocation.locate.then do |data|
-      Prayer.create(ip: data[:ip], lat: data[:latitude].round(5), long: data[:longitude].round(5))
-    end
+    IpAddress.then { |address| Prayer.create(ip: address) }
     @still_praying = nil
   end
 
