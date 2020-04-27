@@ -9,7 +9,7 @@ class Markdown < HyperComponent
         fontSize: [WindowDims.height * WindowDims.width / 70_000, 17].max
       },
       paper: {
-        background: 'rgba(255, 255, 255, 0.5)',
+        background: 'rgba(255, 255, 255, 0.6)',
         padding: [WindowDims.height * WindowDims.width / 80_000, 5].max, marginTop: 5, marginBottom: 5 }
     }
   end
