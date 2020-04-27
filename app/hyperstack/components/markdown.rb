@@ -4,12 +4,13 @@ class Markdown < HyperComponent
   styles do
     {
       container: {
-        opacity: 0.5,
         marginTop: Header.height + 10,
         marginBottom: 150,
-        fontSize: [WindowDims.height * WindowDims.width / 70_000, 14].max
+        fontSize: [WindowDims.height * WindowDims.width / 70_000, 17].max
       },
-      paper: { padding: [WindowDims.height * WindowDims.width / 80_000, 5].max, marginTop: 5, marginBottom: 5 }
+      paper: {
+        background: 'rgba(255, 255, 255, 0.5)',
+        padding: [WindowDims.height * WindowDims.width / 80_000, 5].max, marginTop: 5, marginBottom: 5 }
     }
   end
 

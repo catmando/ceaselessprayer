@@ -1,24 +1,17 @@
 class Map < HyperComponent
   def zoom
-    #0 at 150, 0 at 235, 0.3 at 337, 1 at 765
-    #height / 800.0
-    #[(WindowDims.height - 568) * (1.9 / (1421 - 568)), 0].max
     [(height - 337) * (0.7 / (765 - 337)) + 0.3, 0].max.tap { |x| puts "zoom: #{x} at #{height}"}
   end
 
   def height
-    #[WindowDims.height-jQ['#overview'].height-Header.height-10][250 + (WindowDims.height - 568) * (750 / (1421 - 568)), 150].max
-    #puts "getting overview height: #{jQ['#overview'].height} #{jQ['#action_button'].height}"
     if WindowDims.portrait?
-      (WindowDims.height-(jQ['#overview'].height || 150)-(jQ['#action_button'].height || 150)-Header.height-70).tap { |h| puts "height set to #{h}" }
+      (WindowDims.height-(jQ['#overview'].height || 150)-(jQ['#action_button'].height || 150)-Header.height-70)
     else
-      #[250 + (WindowDims.height - 568) * (750 / (1421 - 568)), 150].max
-      (WindowDims.height-(jQ['#action_button'].height || 150)-Header.height-50).tap { |h| puts "height set to #{h}" }
+      (WindowDims.height-(jQ['#action_button'].height || 150)-Header.height-50)
     end
   end
 
   def update_map
-    puts "updating map #{@height} ... #{height} "
     draw_map(force: true) && return if @height != height
 
     `#{@map}.getSource('recent-prayers').setData(#{@geojson.to_n})`
@@ -28,7 +21,7 @@ class Map < HyperComponent
 
   def draw_map(force: false)
     return if @map && !force
-puts 'drawing map'
+
     @height = height
     map = nil
     %x{
@@ -70,17 +63,17 @@ puts 'drawing map'
               ['linear'],
               ['heatmap-density'],
               0,
-              'rgba(33,102,172,0)',
+              'rgba(246,191,167,0)',
+              0.1,
+              'rgb(249,128,7)',
               0.2,
-              'rgb(103,169,207)',
+              'rgb(246,246,175)',
               0.4,
-              'rgb(209,229,240)',
+              'rgb(252,252,74)',
               0.6,
-              'rgb(253,219,199)',
-              0.8,
-              'rgb(239,138,98)',
+              'rgb(209,243,250)',
               1,
-              'rgb(178,24,43)'
+              'rgb(255,255,255)'
             ],
 
             // Adjust the heatmap radius by currency
