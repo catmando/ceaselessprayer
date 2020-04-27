@@ -54,7 +54,7 @@ More importantly consider how you can put your prayers into action.
 
 ## Who is behind this?
 
-We are thankful for the many people and organizations that have contributed already to this effort:
+We are thankful for the many people and organizations that have contributed and inspired us in this effort:
 
 * Fr Sergius, Abbot of St. Tikhon's Monastery
 * Archbishop Michael, Bishop of NY and NJ (Orthodox Church in America)
@@ -100,7 +100,9 @@ pennies outside the door prays for me while I am eating and sleeping:
 **and so by God’s grace I fulfil the text, “Pray without ceasing” (1 Thess. 5:17).**’
 MARKDOWN
 
-  render(DIV, style: { marginTop: 75 }) do
-    papers
+  render do
+    DIV(style(:container)) do
+      papers
+    end
   end
 end

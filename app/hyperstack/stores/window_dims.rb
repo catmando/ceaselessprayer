@@ -9,6 +9,24 @@ class WindowDims
       window_size[1]
     end
 
+    observer :portrait? do
+      height > width
+    end
+
+    observer :landscape? do
+      !portrait?
+    end
+
+    observer :area do
+      if height * width > 1_000_000
+        :large
+      elsif height * width > 400 * 700
+        :medium
+      else
+        :small
+      end
+    end
+
     def grab_window_size
       mutate @window_size = `[jQuery(window).width(), jQuery(window).height()]`
     end

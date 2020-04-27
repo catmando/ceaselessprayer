@@ -1,22 +1,39 @@
 class Header < HyperComponent
 
+  def self.height
+    [160, [56, WindowDims.width / 1900 * 170].max].min
+  end
+
+  styles do
+    next unless WindowDims.width > 700 && WindowDims.height > 700
+
+    font_size = [100, Header.height * 0.5].min
+    {
+      app_bar: { minHeight: Header.height, paddingTop: 20, paddingBottom: 20, paddingRight: 60 },
+      tool_bar: { width: '100%', textAlign: :center, fontSize: font_size},
+      menu_icon: { fontSize: font_size },
+      hero: { width: '100%' },
+      menu_item: { fontSize: font_size / 2 }
+    }
+  end
+
   def menu_link(path, text)
     return if path == App.location.pathname
 
-    Mui::MenuItem() { text }
+    Mui::MenuItem(style(:menu_item)) { text }
     .on(:click) do
       Footer.push_path(path)
       mutate @anchor = nil
     end
   end
+
   render(DIV, style: {flexGrow: 1}) do
-    Mui::AppBar(position: :fixed, id: 'header', size: :large) do
-      Mui::Toolbar() do
+    Mui::AppBar(style(:app_bar), position: :fixed, id: 'header') do
+      Mui::Toolbar(style(:tool_bar)) do
         Mui::IconButton(edge: :start, color: :inherit, aria: {label: :menu, controls: :menu, haspopup: true}) do
-          Icon::Menu()
+          Icon::Menu(style(:menu_icon))
         end.on(:click) { |e| mutate @anchor = e.target }
-        # puts "window width: #{WindowDims.width} height: #{WindowDims.height}"
-        'Join us in world wide prayer for healing'
+        DIV(style(:hero)) { 'Join us in world wide prayer for healing' }
       end
     end
     Mui::Menu(:keepMounted, id: :menu, anchorEl: @anchor.to_n, open: !!@anchor) do
@@ -25,32 +42,3 @@ class Header < HyperComponent
     end.on(:close) { mutate @anchor = nil } if @anchor
   end
 end
-
-# <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-#   Open Menu
-# </Button>
-
-
-# <AppBar position="static">
-#   <Toolbar>
-#     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-#       <MenuIcon />
-#     </IconButton>
-#     <Typography variant="h6" className={classes.title}>
-#       News
-#     </Typography>
-#     <Button color="inherit">Login</Button>
-#   </Toolbar>
-# </AppBar>
-
-# <Menu
-#   id="simple-menu"
-#   anchorEl={anchorEl}
-#   keepMounted
-#   open={Boolean(anchorEl)}
-#   onClose={handleClose}
-# >
-#   <MenuItem onClick={handleClose}>Profile</MenuItem>
-#   <MenuItem onClick={handleClose}>My account</MenuItem>
-#   <MenuItem onClick={handleClose}>Logout</MenuItem>
-# </Menu>

@@ -1,24 +1,35 @@
 class Map < HyperComponent
   def zoom
-    [(WindowDims.height - 568) * (1.9 / (1421 - 568)), 0].max
+    #0 at 150, 0 at 235, 0.3 at 337, 1 at 765
+    #height / 800.0
+    #[(WindowDims.height - 568) * (1.9 / (1421 - 568)), 0].max
+    [(height - 337) * (0.7 / (765 - 337)) + 0.3, 0].max.tap { |x| puts "zoom: #{x} at #{height}"}
   end
 
   def height
-    [250 + (WindowDims.height - 568) * (750 / (1421 - 568)), 150].max
+    #[WindowDims.height-jQ['#overview'].height-Header.height-10][250 + (WindowDims.height - 568) * (750 / (1421 - 568)), 150].max
+    #puts "getting overview height: #{jQ['#overview'].height} #{jQ['#action_button'].height}"
+    if WindowDims.portrait?
+      (WindowDims.height-(jQ['#overview'].height || 150)-(jQ['#action_button'].height || 150)-Header.height-70).tap { |h| puts "height set to #{h}" }
+    else
+      #[250 + (WindowDims.height - 568) * (750 / (1421 - 568)), 150].max
+      (WindowDims.height-(jQ['#action_button'].height || 150)-Header.height-50).tap { |h| puts "height set to #{h}" }
+    end
   end
 
   def update_map
-    puts "update_map"
-    # return unless @map || `#{@map}.getSource('recent-prayers') != undefined`
+    puts "updating map #{@height} ... #{height} "
+    draw_map(force: true) && return if @height != height
+
     `#{@map}.getSource('recent-prayers').setData(#{@geojson.to_n})`
   rescue Exception => e
     nil
   end
 
-  def draw_map
-    puts "draw map"
-    return if @map
-
+  def draw_map(force: false)
+    return if @map && !force
+puts 'drawing map'
+    @height = height
     map = nil
     %x{
       mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0bWFuZG8iLCJhIjoiY2s4emZ2MnVjMXNiMjNnanNicGFpaWVvNiJ9.OqPP4lJF1sUJlRynB2RSaw';
@@ -100,6 +111,8 @@ class Map < HyperComponent
   after_update :update_map
 
   render do
+    puts "rendering map"
+    WindowDims.portrait? # to force update of map when orientation changes
     @geojson = Prayer.as_geojson(@time_stamp)
     DIV(style: { position: :relative, marginTop: 5, width: '100%', height: height}) do
       DIV(id: :map, style: { position: :absolute, top: 0, bottom: 0, width: '100%'})

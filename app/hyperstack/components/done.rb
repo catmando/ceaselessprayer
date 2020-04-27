@@ -14,7 +14,7 @@ More pages such as resources, and scheduling are coming soon.*
 
 MARKDOWN
   render do
-    DIV(style: { marginTop: 75, marginBottom: 100 }) do
+    DIV(style(:container)) do
       papers
     end
   end

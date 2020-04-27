@@ -8,6 +8,28 @@ class HyperComponent
   # i.e. param :foo is accessed by the foo method
   param_accessor_style :accessors
 
+  def style(klass)
+    styles = self.class.style(self, klass)
+    return unless styles
+
+    { style: styles }
+  end
+
+  def self.style(component, klass)
+    return {} if self == HyperComponent
+
+    super_styles = superclass.style(component, klass)
+    my_styles = component.instance_eval(&@style_block) if @style_block
+    my_styles &&= my_styles[klass]
+    return super_styles unless my_styles
+
+    super_styles.merge(my_styles)
+  end
+
+  def self.styles(&block)
+    @style_block = block
+  end
+
   class << self
     def set_top
       # `jQuery(window).scrollTop(#{@saved_top || 0})`

@@ -378,7 +378,7 @@ MARKDOWN
   end
 
   render do
-    DIV(class: :page, style: { marginTop: 75, marginBottom: 125 }) do
+    DIV(style(:container), class: :page) do
       papers
     end.on(:click) { @still_praying = true }
   end
