@@ -6,7 +6,7 @@ for God's mercy on us in this time of crisis.
 
 In the book of Thessalonians Paul tells us to pray without ceasing.  There are many ways to understand this command
 but I have always liked the story from the desert fathers where a monk explains that he achieves unceasing prayer
-by praying when he can, and they relying on others to pray while he is eating or sleeping.
+by praying when he can, and then relying on others to pray while he is eating or sleeping.
 
 *By the way the complete story is at the end of this page.*
 
