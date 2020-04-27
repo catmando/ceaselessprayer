@@ -17,7 +17,36 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background-image: url('https://ak5.picdn.net/shutterstock/videos/2928865/thumb/1.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed">
+  <style>
+    body {
+      background-image: url('https://ak5.picdn.net/shutterstock/videos/2928865/thumb/1.jpg');
+      background-position: right bottom;
+      background-repeat: no-repeat;
+      background-size: cover;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+    }
+
+    body:after {
+      background: url('https://ak5.picdn.net/shutterstock/videos/2928865/thumb/1.jpg') center center;
+
+      content:"";
+      position: fixed; /* stretch a fixed position to the whole screen */
+      top:0;
+      height:100vh; /* fix for mobile browser address bar appearing disappearing */
+      left:0;
+      right:0;
+      z-index:-1; /* needed to keep in the background */
+      background: url('https://ak5.picdn.net/shutterstock/videos/2928865/thumb/1.jpg') center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  </style>
+
+  <body>
     <%= yield %>
   </body>
 </html>
