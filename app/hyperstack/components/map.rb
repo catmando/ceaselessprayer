@@ -1,6 +1,6 @@
 class Map < HyperComponent
   def zoom
-    [(height - 337) * (0.7 / (765 - 337)) + 0.3, 0].max.tap { |x| puts "zoom: #{x} at #{height}"}
+    [(height - 337) * (0.7 / (765 - 337)) + 0.3, 0].max
   end
 
   def height
