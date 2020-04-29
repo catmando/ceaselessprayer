@@ -60,9 +60,10 @@ We are thankful for the many people and organizations that have contributed and 
 * Archbishop Michael, Bishop of NY and NJ (Orthodox Church in America)
 * [catprint.com](www.catprint.com) for providing our website hosting.
 * The prayer icon is from [Freepik](https://www.flaticon.com/authors/freepik) and [Flaticon.com](https://www.flaticon.com)
+* [cthedot.de Icon Generator](https://cthedot.de/icongen/)
 * The great open source software community that made this software possible
 
-For more details visit [https://github.com/catmando/ceaselessprayer](https://github.com/catmando/ceaselessprayer)
+For more details visit our [github repo.](https://github.com/catmando/ceaselessprayer)
 
 
 ## Pray Without Ceasing
@@ -97,7 +98,7 @@ He said, ‘When I spend all day working and praying in my heart, I make about s
 Two of these I put outside the door, and with the rest I buy food. Whoever finds the two
 pennies outside the door prays for me while I am eating and sleeping:
 
-**and so by God’s grace I fulfil the text, “Pray without ceasing” (1 Thess. 5:17).**’
+**and so by God’s grace I fulfil the text, “Pray without ceasing” (1 Thess. 5:17).**
 MARKDOWN
 
   render do

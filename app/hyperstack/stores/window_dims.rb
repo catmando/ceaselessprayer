@@ -28,6 +28,8 @@ class WindowDims
     end
 
     def grab_window_size
+      puts 'window size changed!'
+
       mutate @window_size = `[jQuery(window).width(), jQuery(window).height()]`
     end
 

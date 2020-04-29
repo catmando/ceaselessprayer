@@ -5,8 +5,9 @@ class Markdown < HyperComponent
     {
       container: {
         marginTop: Header.height + 10,
-        marginBottom: 150,
-        fontSize: [WindowDims.height * WindowDims.width / 70_000, 17].max
+        marginBottom: Footer.height + 10,
+        fontSize: [WindowDims.height * WindowDims.width / 70_000, 17].max,
+        overflow: :auto
       },
       paper: {
         background: 'rgba(255, 255, 255, 0.6)',

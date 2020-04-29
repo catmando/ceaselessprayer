@@ -6,7 +6,7 @@ class App < HyperComponent
   # end
 
   render do
-    DIV(style: { flexDirection: :column, height: '100vh'}) do
+    DIV(style: { display: :flex, flexFlow: :column, height: '100vh', overflow: :hidden}) do
       Header()
       Route('/about',    mounts: About)
       Route('/pray',     mounts: Pray)

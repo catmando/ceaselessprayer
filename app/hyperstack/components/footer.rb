@@ -8,6 +8,10 @@ class Footer < HyperComponent
     { button: { minHeight: 60, fontSize: 40 } } if WindowDims.area == :large
   end
 
+  def self.height
+    WindowDims.area == :large ? 100 : 60
+  end
+
   def link(path, text)
     return if path == App.location.pathname
 

@@ -2,19 +2,26 @@
 <html>
   <head>
     <title>CeaselessPrayer</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Lighthouse Details -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0">
+     <meta name="theme-color" content="#3f51b5"/>
+    <link rel="apple-touch-icon" href="<%= asset_path('apple-touch-icon-180x180.png') %>" />
+
+    <%= favicon_link_tag asset_path('favicon-16x16.png') %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
 
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= stylesheet_pack_tag    'application' %>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <style>
@@ -26,6 +33,7 @@
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
+      overflow: hidden;
     }
 
     body:after {

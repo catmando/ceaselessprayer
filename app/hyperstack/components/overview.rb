@@ -22,11 +22,11 @@ MARKDOWN
   styles do
     case WindowDims.area
     when :large
-      { container: { opacity: 0.8, fontSize: 30, marginBottom: 200 }, paper: { padding: 30, marginTop: 10 } }
+      { container: { opacity: 0.8, fontSize: 30, marginBottom: Footer.height+20 }, paper: { padding: 30, marginTop: 10 } }
     when :medium
-      { container: { opacity: 0.8, fontSize: 17, marginBottom: 100 }, paper: { padding: 5, marginTop: 5 } }
+      { container: { opacity: 0.8, fontSize: 18, marginBottom: Footer.height+10 }, paper: { padding: 5, marginTop: 5 } }
     else
-      { container: { opacity: 0.8, fontSize: 13, marginBottom: 100 }, paper: { padding: 5, marginTop: 5 } }
+      { container: { opacity: 0.8, fontSize: 14, marginBottom: Footer.height+5 }, paper: { padding: 5, marginTop: 5 } }
     end
   end
 

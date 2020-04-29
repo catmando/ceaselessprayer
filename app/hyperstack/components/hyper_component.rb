@@ -37,8 +37,7 @@ class HyperComponent
     end
 
     def save_top
-      # @saved_top = `jQuery(window).scrollTop()`
-      @saved_top = jQ[`window`].scrollTop
+      # @saved_top = jQ[`window`].scrollTop
     end
   end
 

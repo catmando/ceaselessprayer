@@ -27,7 +27,7 @@ class Header < HyperComponent
     end
   end
 
-  render(DIV, style: {flexGrow: 1}) do
+  render(DIV, id: :app_bar) do
     Mui::AppBar(style(:app_bar), position: :fixed, id: 'header') do
       Mui::Toolbar(style(:tool_bar)) do
         Mui::IconButton(edge: :start, color: :inherit, aria: {label: :menu, controls: :menu, haspopup: true}) do

@@ -1,19 +1,25 @@
 class Map < HyperComponent
   def zoom
-    [(height - 337) * (0.7 / (765 - 337)) + 0.3, 0].max
+    # [(height - 337) * (0.7 / (765 - 337)) + 0.3, 0].max
+    2 #-0.5524973177530041
   end
 
   def height
-    if WindowDims.portrait?
-      (WindowDims.height-(jQ['#overview'].height || 150)-(jQ['#action_button'].height || 150)-Header.height-70)
-    else
-      (WindowDims.height-(jQ['#action_button'].height || 150)-Header.height-50)
-    end
+    jQ['#map'].height
   end
+
+  # def height
+  #   if WindowDims.portrait?
+  #     (WindowDims.height-(jQ['#overview'].height)-(jQ['#action_button'].height)-Header.height-70)
+  #   else
+  #     (WindowDims.height-(jQ['#action_button'].height)-Header.height-50)
+  #   end
+  # rescue
+  #   WindowDims.height
+  # end
 
   def update_map
     draw_map(force: true) && return if @height != height
-
     `#{@map}.getSource('recent-prayers').setData(#{@geojson.to_n})`
   rescue Exception => e
     nil
@@ -21,19 +27,24 @@ class Map < HyperComponent
 
   def draw_map(force: false)
     return if @map && !force
-
     @height = height
+    puts "drawing map:  height = #{@height}"
     map = nil
     %x{
       mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0bWFuZG8iLCJhIjoiY2s4emZ2MnVjMXNiMjNnanNicGFpaWVvNiJ9.OqPP4lJF1sUJlRynB2RSaw';
       map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/dark-v10',
-        center: #{[0, 10]},
-        zoom: #{zoom}
+        // center: #{[-50, 20]},
+        // zoom: #{zoom},
+        // bounds: [-150, 70, 30, -55]
+        //bounds: [-50, 75, -40, -60]
+        bounds: [-30, 30, -30, -30]
+        // interactive: false
         });
 
       map.on('load', function() {
+        // map.fitBounds([-150, 70, 30, -55])
         // Add a geojson point source.
         map.addSource('recent-prayers', {
         'type': 'geojson',
@@ -88,15 +99,19 @@ class Map < HyperComponent
         },
         'waterway-label'
         );
-      })
+      });
     }
     @map = map
-    pan
-    every(10) { pan }
+    `window.mrmap = map`
+    #pan
+    #every(8) { pan }
+  rescue Exception
+    debugger
+    nil
   end
 
   def pan
-    `#{@map}.panBy([100, 0], {duration: 10000, easing: function(x) { return x }})`
+    `#{@map}.panBy([100, 0], {duration: 8000, easing: function(x) { return x }})`
   end
 
   before_mount { @time_stamp = Time.now }
@@ -104,11 +119,14 @@ class Map < HyperComponent
   after_update :update_map
 
   render do
-    puts "rendering map"
     WindowDims.portrait? # to force update of map when orientation changes
     @geojson = Prayer.as_geojson(@time_stamp)
-    DIV(style: { position: :relative, marginTop: 5, width: '100%', height: height}) do
-      DIV(id: :map, style: { position: :absolute, top: 0, bottom: 0, width: '100%'})
+    begin
+    DIV(style: { width: '100%', flex: 1, overflow: :hidden, height: '100vh' }) do
+      DIV(id: :map, style: { width: '100%', overflow: :hidden, height: '100%'} )
     end
+  rescue Exception
+    "loading"
+  end
   end
 end
