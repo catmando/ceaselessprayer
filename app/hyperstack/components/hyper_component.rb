@@ -8,6 +8,8 @@ class HyperComponent
   # i.e. param :foo is accessed by the foo method
   param_accessor_style :accessors
 
+  param style: {}, alias: :ics
+
   def style(klass)
     styles = self.class.style(self, klass)
     return unless styles

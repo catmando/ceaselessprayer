@@ -1,22 +1,7 @@
 class Map < HyperComponent
-  def zoom
-    # [(height - 337) * (0.7 / (765 - 337)) + 0.3, 0].max
-    2 #-0.5524973177530041
-  end
-
   def height
     jQ['#map'].height
   end
-
-  # def height
-  #   if WindowDims.portrait?
-  #     (WindowDims.height-(jQ['#overview'].height)-(jQ['#action_button'].height)-Header.height-70)
-  #   else
-  #     (WindowDims.height-(jQ['#action_button'].height)-Header.height-50)
-  #   end
-  # rescue
-  #   WindowDims.height
-  # end
 
   def update_map
     draw_map(force: true) && return if @height != height
@@ -27,20 +12,19 @@ class Map < HyperComponent
 
   def draw_map(force: false)
     return if @map && !force
+
     @height = height
-    puts "drawing map:  height = #{@height}"
     map = nil
     %x{
       mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0bWFuZG8iLCJhIjoiY2s4emZ2MnVjMXNiMjNnanNicGFpaWVvNiJ9.OqPP4lJF1sUJlRynB2RSaw';
       map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v10',
+        style: 'mapbox://styles/mapbox/dark-v8',
         // center: #{[-50, 20]},
         // zoom: #{zoom},
-        // bounds: [-150, 70, 30, -55]
-        //bounds: [-50, 75, -40, -60]
-        bounds: [-30, 30, -30, -30]
-        // interactive: false
+        bounds: [-150, 70, 30, -55]
+        // bounds: [-30, 30, -30, -30] // test fixed map size
+        interactive: false
         });
 
       map.on('load', function() {
@@ -103,11 +87,8 @@ class Map < HyperComponent
     }
     @map = map
     `window.mrmap = map`
-    #pan
-    #every(8) { pan }
-  rescue Exception
-    debugger
-    nil
+    pan
+    every(8) { pan }
   end
 
   def pan
@@ -121,12 +102,8 @@ class Map < HyperComponent
   render do
     WindowDims.portrait? # to force update of map when orientation changes
     @geojson = Prayer.as_geojson(@time_stamp)
-    begin
-    DIV(style: { width: '100%', flex: 1, overflow: :hidden, height: '100vh' }) do
+    DIV(style: ics.merge(height: '100%', opacity: 0.85)) do
       DIV(id: :map, style: { width: '100%', overflow: :hidden, height: '100%'} )
     end
-  rescue Exception
-    "loading"
-  end
   end
 end

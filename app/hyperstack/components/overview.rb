@@ -8,25 +8,14 @@ We invite you to pray with the help of this simple app, just a few minutes a day
 up the map of the world in ceaseless prayer to our merciful Lord.
 MARKDOWN
 
-
-  def font_size
-    if WindowDims.height * WindowDims.width > 1_000_000
-      30
-    elsif WindowDims.height * WindowDims.width > 400 * 700
-      20
-    else
-      15
-    end
-  end
-
   styles do
     case WindowDims.area
     when :large
-      { container: { opacity: 0.8, fontSize: 30, marginBottom: Footer.height+20 }, paper: { padding: 30, marginTop: 10 } }
+      { container: ics.merge(opacity: 0.8, fontSize: 25), paper: { padding: 30, marginTop: 10 } }
     when :medium
-      { container: { opacity: 0.8, fontSize: 18, marginBottom: Footer.height+10 }, paper: { padding: 5, marginTop: 5 } }
+      { container: ics.merge(opacity: 0.8, fontSize: 17), paper: { padding: 5, marginTop: 5 } }
     else
-      { container: { opacity: 0.8, fontSize: 14, marginBottom: Footer.height+5 }, paper: { padding: 5, marginTop: 5 } }
+      { container: ics.merge(opacity: 0.8, fontSize: 14), paper: { padding: 5, marginTop: 5 } }
     end
   end
 

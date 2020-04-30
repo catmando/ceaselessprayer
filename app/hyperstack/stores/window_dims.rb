@@ -18,7 +18,7 @@ class WindowDims
     end
 
     observer :area do
-      if height * width > 1_000_000
+      if height * width >= 768 * 1024
         :large
       elsif height * width > 400 * 700
         :medium
@@ -28,9 +28,7 @@ class WindowDims
     end
 
     def grab_window_size
-      puts 'window size changed!'
-
-      mutate @window_size = `[jQuery(window).width(), jQuery(window).height()]`
+      mutate @window_size = `[jQuery(window).innerWidth(), jQuery(window).innerHeight()]`
     end
 
     def window_size

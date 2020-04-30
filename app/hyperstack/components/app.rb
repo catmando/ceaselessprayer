@@ -6,7 +6,9 @@ class App < HyperComponent
   # end
 
   render do
-    DIV(style: { display: :flex, flexFlow: :column, height: '100vh', overflow: :hidden}) do
+    # dynamically set height so it works on mobile devices like iphone / safari
+    # which does not use 100vh properly.
+    DIV(class: :box, style: { height: WindowDims.height+1 }) do
       Header()
       Route('/about',    mounts: About)
       Route('/pray',     mounts: Pray)

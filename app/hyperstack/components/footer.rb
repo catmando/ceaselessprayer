@@ -20,11 +20,11 @@ class Footer < HyperComponent
     Mui::Grid(:item, xs: 12, lg: 6) do
       Mui::Button(:fullWidth, style(:button), size: size, variant: :contained, color: :primary) { text }
       .on(:click) { Footer.push_path(path) }
-    end
+    end 
     Mui::Grid(xs: 0, lg: 3)
   end
 
-  render(DIV, id: :action_button, style: { position: :fixed, bottom: 0, left: 0, marginBottom: 5, width: '100%' }) do
+  render(DIV, class: 'row footer', id: :action_button, style: { marginTop: 5, marginBottom: 5, width: '100%' }) do
     Mui::Container() do
       Mui::Grid(:container, spacing: 1) do
         if App.location.pathname == '/pray'

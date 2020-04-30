@@ -4,8 +4,6 @@ class Markdown < HyperComponent
   styles do
     {
       container: {
-        marginTop: Header.height + 10,
-        marginBottom: Footer.height + 10,
         fontSize: [WindowDims.height * WindowDims.width / 70_000, 17].max,
         overflow: :auto
       },
