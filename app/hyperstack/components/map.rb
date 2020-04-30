@@ -22,7 +22,7 @@ class Map < HyperComponent
         style: 'mapbox://styles/mapbox/dark-v8',
         // center: #{[-50, 20]},
         // zoom: #{zoom},
-        bounds: [-150, 70, 30, -55]
+        bounds: [-150, 70, 30, -55],
         // bounds: [-30, 30, -30, -30] // test fixed map size
         interactive: false
         });
