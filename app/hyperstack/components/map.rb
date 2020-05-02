@@ -4,6 +4,7 @@ class Map < HyperComponent
   end
 
   def update_map
+    puts "updating map"
     draw_map(force: true) && return if @height != height
     `#{@map}.getSource('recent-prayers').setData(#{@geojson.to_n})`
   rescue Exception => e
