@@ -32,7 +32,7 @@ class Footer < HyperComponent
     Mui::Grid(xs: 0, lg: 3)
     Mui::Grid(:item, xs: 6, lg: 3) do
       Mui::Button(:fullWidth, style(:button), size: size, variant: :contained, style: {backgroundColor: '#4caf50'}) { 'Bookmark' }
-      .on(:click) { App.confirm_install! }
+      .on(:click) { mutate App.confirm_install! }
     end
     Mui::Grid(:item, xs: 6, lg: 3) do
       Mui::Button(:fullWidth, style(:button), size: size, variant: :contained, style: {backgroundColor: '#ff9800'}) { 'Done' }
