@@ -12,15 +12,32 @@ class Footer < HyperComponent
     WindowDims.area == :large ? 100 : 60
   end
 
-  def link(path, text)
-    return if path == App.location.pathname
+  def size
+    WindowDims.width > 1000 ? :large : :medium
+  end
 
-    size = WindowDims.width > 1000 ? :large : :medium
+  def link(path, text, install_option = nil)
+    return if path == App.location.pathname
+    return done_with_install if install_option && App.ready_to_install?
+
     Mui::Grid(xs: 0, lg: 3)
     Mui::Grid(:item, xs: 12, lg: 6) do
       Mui::Button(:fullWidth, style(:button), size: size, variant: :contained, color: :primary) { text }
       .on(:click) { Footer.push_path(path) }
-    end 
+    end
+    Mui::Grid(xs: 0, lg: 3)
+  end
+
+  def done_with_install
+    Mui::Grid(xs: 0, lg: 3)
+    Mui::Grid(:item, xs: 6, lg: 3) do
+      Mui::Button(:fullWidth, style(:button), size: size, variant: :contained, style: {backgroundColor: '#4caf50'}) { 'Bookmark' }
+      .on(:click) { App.confirm_install! }
+    end
+    Mui::Grid(:item, xs: 6, lg: 3) do
+      Mui::Button(:fullWidth, style(:button), size: size, variant: :contained, style: {backgroundColor: '#ff9800'}) { 'Done' }
+      .on(:click) { Footer.push_path('/home') }
+    end
     Mui::Grid(xs: 0, lg: 3)
   end
 
@@ -30,7 +47,7 @@ class Footer < HyperComponent
         if App.location.pathname == '/pray'
           link('/done', 'Done')
         elsif App.location.pathname == '/done'
-          link('/home', 'Close')
+          link('/home', 'Close', true)
         else
           link('/pray', 'Pray Now!')
         end

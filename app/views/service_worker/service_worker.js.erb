@@ -1,6 +1,6 @@
 var CACHE_VERSION = 'v1';
-var CACHE_NAME = CACHE_VERSION + ':sw-cache-';
-
+var CACHE_NAME = CACHE_VERSION + ':sw-cache';
+// ........
 function onInstall(event) {
   console.log('[Serviceworker]', "Installing!", event);
   event.waitUntil(
@@ -33,8 +33,8 @@ function onActivate(event) {
   );
 }
 
-// Borrowed from https://github.com/TalAter/UpUp
-function onFetch(event) {
+// Borrowed from https://github.com/TalAter/UpUp not using right now
+function onxFetch(event) {
   event.respondWith(
     // try to return untouched request from network first
     fetch(event.request).catch(function() {
@@ -54,6 +54,28 @@ function onFetch(event) {
   );
 }
 
+// from https://deanhume.com/displaying-a-new-version-available-progressive-web-app/.
+function onFetch(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function (response) {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      })
+  );
+}
+
+// from https://deanhume.com/displaying-a-new-version-available-progressive-web-app/
+
+function onMessage(event) {
+  if (event.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
+}
+
 self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
+self.addEventListener('message', onMessage)

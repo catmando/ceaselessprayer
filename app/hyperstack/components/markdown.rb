@@ -13,11 +13,16 @@ class Markdown < HyperComponent
     }
   end
 
+  def markdown
+    self.class::MARKDOWN 
+  end
+
+
   def papers
     Mui::Container() do
       Mui::Grid(:container, spacing: 1) do
         Mui::Grid(:item, xs: 12, sm: 8) do
-          self.class::MARKDOWN.split("\n~~~~").each do |paper|
+          markdown.split("\n~~~~").each do |paper|
             Mui::Paper(style(:paper), elevation: 3) do
               DIV(dangerously_set_inner_HTML: { __html:  `#{Markdown::REMARKABLE}.render(#{paper})`})
             end
