@@ -100,7 +100,7 @@ pennies outside the door prays for me while I am eating and sleeping:
 
 **and so by God’s grace I fulfil the text, “Pray without ceasing” (1 Thess. 5:17).**
 
-*Version 1.3 May 2, 2020*
+*Version 1.4 May 2, 2020*
 MARKDOWN
 
   render do
