@@ -13,7 +13,7 @@ or if you have a github account [visit our github page](https://github.com/catma
 ### Version 1.7, May 6, 2020
 
 + Fixed several typos in prayers.
-+ Made oceans on the map more transparent to the background.
++ Made oceans on the map more transparent to the background image.
 + Added this change log.
 
 ### Version 1.6, May 2, 2020

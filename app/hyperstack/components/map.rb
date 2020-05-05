@@ -21,7 +21,7 @@ class Map < HyperComponent
       map = new mapboxgl.Map({
         container: 'map',
         // style: 'mapbox://styles/mapbox/dark-v8',
-        style: 'mapbox://styles/catmando/ck9twiws10y2v1ipiqqjp3lp6',
+        style: 'mapbox://styles/catmando/ck9u5nvcy17321ip3gzhoud7i',
         // center: #{[-50, 20]},
         // zoom: #{zoom},
         bounds: [-150, 70, 30, -55],
