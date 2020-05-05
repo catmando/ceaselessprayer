@@ -9,7 +9,11 @@ class App < HyperComponent
     def reload?
       return unless @reload
 
-      `window.newWorker.postMessage({ action: 'skipWaiting' })`
+      if Hyperstack.env.production?
+        `window.newWorker.postMessage({ action: 'skipWaiting' })`
+      else
+        after(0.5) { mutate }
+      end
       @reload = false
       true
     end
@@ -43,6 +47,8 @@ class App < HyperComponent
       Route('/pray',     mounts: Pray)
       Route('/schedule', mounts: Schedule)
       Route('/home',     mounts: App.reload? ? Reload : Home)
+      Route('/change-log', mounts: ChangeLog)
+      # Route('/top-cities', mounts: TopCities)
       Route('/done',     mounts: Done)
       Route('/', exact: true) { mutate Redirect('/home') }
       Footer() unless App.location.pathname == '/'

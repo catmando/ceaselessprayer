@@ -39,6 +39,7 @@ class Header < HyperComponent
     Mui::Menu(:keepMounted, id: :menu, anchorEl: @anchor.to_n, open: !!@anchor) do
       menu_link('/home', 'Home')
       menu_link('/about', 'About')
+      menu_link('/change-log', 'Change Log')
     end.on(:close) { mutate @anchor = nil } if @anchor
   end
 end

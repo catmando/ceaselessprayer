@@ -75,7 +75,7 @@ Then wilt Thou delight in right sacrifices, in burnt offerings and whole burnt o
 
 ~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">
-Prayer for the Pandemic of 2019</summary>
+Prayer for the Pandemic of 2020</summary>
 
 O God Almighty, Lord of heaven and earth, and of all creation visible and invisible, in thine ineffable goodness,
 look down upon us, thy people gathered in thy Holy Name.
@@ -95,7 +95,7 @@ name of the Father and of the Son and of the Holy Spirit, now and ever and unto 
 </details>
 ~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">
-​Prayer for Protection against a Pandemic</summary>
+​Prayer for Protection against the Pandemic</summary>
 
 Lord Jesus Christ our God, You Who created human beings with utter goodness, the healer of our souls and bodies,
 heed now the supplication of Your children, and save us from the impending threat against the world.
@@ -136,7 +136,7 @@ O Lord our God, Who by a word alone did heal all diseases, Who did cure the kins
 You Who chastise with pity and heal according to Your goodness;
 
 Who are able to put aside every sickness and infirmity, do You Yourself, the same Lord, grant aid
-to Your servant(s) _(names)_ and cure _him/her/them_ of every sickness of which _him/her/them_ is grieved;
+to Your servant(s) _(names)_ and cure _him/her/them_ of every sickness of which _he/she/they_ is grieved;
 
 Send down upon _him/her/them_ Your great mercy, and if it be Your will, give to _him/her/them_ health and a complete recovery;
 

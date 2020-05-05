@@ -20,7 +20,8 @@ class Map < HyperComponent
       mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0bWFuZG8iLCJhIjoiY2s4emZ2MnVjMXNiMjNnanNicGFpaWVvNiJ9.OqPP4lJF1sUJlRynB2RSaw';
       map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v8',
+        // style: 'mapbox://styles/mapbox/dark-v8',
+        style: 'mapbox://styles/catmando/ck9twiws10y2v1ipiqqjp3lp6',
         // center: #{[-50, 20]},
         // zoom: #{zoom},
         bounds: [-150, 70, 30, -55],
@@ -103,7 +104,7 @@ class Map < HyperComponent
   render do
     WindowDims.portrait? # to force update of map when orientation changes
     @geojson = Prayer.as_geojson(@time_stamp)
-    DIV(style: ics.merge(height: '100%', opacity: 0.85)) do
+    DIV(style: ics.merge(height: '100%', opacity: 0.5)) do
       DIV(id: :map, style: { width: '100%', overflow: :hidden, height: '100%'} )
     end
   end
