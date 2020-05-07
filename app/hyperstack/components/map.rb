@@ -5,16 +5,23 @@ class Map < HyperComponent
 
   def update_map
     puts "updating map"
-    draw_map(force: true) && return if @height != height
-    `#{@map}.getSource('recent-prayers').setData(#{@geojson.to_n})`
+    `#{map}.getSource('recent-prayers').setData(#{@geojson.to_n})`
   rescue Exception => e
     nil
   end
 
-  def draw_map(force: false)
-    return if @map && !force
+  def initial_data
+    {
+      type: 'FeatureCollection',
+      crs: { type: :name, properties: { name: 'ceaselessprayer-recent-prayers' } },
+      features: []
+    }
+  end
 
-    @height = height
+  def map
+    return @map if @map
+
+    puts 'initializing map'
     map = nil
     %x{
       mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0bWFuZG8iLCJhIjoiY2s4emZ2MnVjMXNiMjNnanNicGFpaWVvNiJ9.OqPP4lJF1sUJlRynB2RSaw';
@@ -34,7 +41,7 @@ class Map < HyperComponent
         // Add a geojson point source.
         map.addSource('recent-prayers', {
         'type': 'geojson',
-        'data': #{@geojson.to_n}
+        'data': #{initial_data.to_n}
         });
 
         map.addLayer({
@@ -85,25 +92,23 @@ class Map < HyperComponent
         },
         'waterway-label'
         );
+        #{pan; every(8) { pan }}
+        #{puts 'loaded map!'}
+        #{mutate};
       });
     }
     @map = map
-    `window.mrmap = map`
-    pan
-    every(8) { pan }
   end
 
   def pan
-    `#{@map}.panBy([100, 0], {duration: 8000, easing: function(x) { return x }})`
+    `#{map}.panBy([100, 0], {duration: 8000, easing: function(x) { return x }})`
   end
 
-  before_mount { @time_stamp = Time.now }
-  after_mount  :draw_map
-  after_update :update_map
+  after_render :update_map
 
   render do
     WindowDims.portrait? # to force update of map when orientation changes
-    @geojson = Prayer.as_geojson(@time_stamp)
+    @geojson = Prayer.as_geojson
     DIV(style: ics.merge(height: '100%', opacity: 0.5)) do
       DIV(id: :map, style: { width: '100%', overflow: :hidden, height: '100%'} )
     end

@@ -365,11 +365,11 @@ MARKDOWN
     record_prayer
     every(15.seconds) { record_prayer }
     @handle_scroll = -> { @still_praying = true }
-    `window.addEventListener('scroll', #{@handle_scroll})`
+    `#{dom_node}.addEventListener('scroll', #{@handle_scroll})`
   end
 
   before_unmount do
-    `window.removeEventListener('scroll', #{@handle_scroll})`
+    `#{dom_node}.removeEventListener('scroll', #{@handle_scroll})`
   end
 
   def save_top

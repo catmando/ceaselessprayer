@@ -25,25 +25,28 @@ class Prayer < ApplicationRecord
     }
   end
 
-  scope :recent, ->(_ts = nil) { where('created_at > ?', Time.now - 1.day) }
+  scope :recent,
+        -> { where('created_at > ?', Time.now - 1.day) },
+        client: -> { created_at > Time.now - 1.day if created_at }
+        # select: -> { select { |r| r.created_at && r.created_at > Time.now - 1.day} }
 
   def currency
     [(24.hours - (Time.now - created_at)) / 1.hour.to_f, 0].max rescue 24
   end
 
   def as_feature
-    {
-      type:       :Feature,
-      properties: { currency: currency },
-      geometry:   { type: :Point, coordinates: [ long, lat ] }
-    }
+    @as_feature ||= {
+        type:       :Feature,
+        properties: { currency: currency },
+        geometry:   { type: :Point, coordinates: [ long, lat ] }
+      }
   end
 
-  def self.as_geojson(ts)
+  def self.as_geojson
     {
       type: 'FeatureCollection',
       crs: { type: :name, properties: { name: 'ceaselessprayer-recent-prayers' } },
-      features: Prayer.recent(ts.to_s).collect(&:as_feature)
+      features: Prayer.recent.collect(&:as_feature).tap { |p| puts "total prayers: #{p.count} "}
     }
   end
 end
