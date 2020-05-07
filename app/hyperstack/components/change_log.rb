@@ -9,6 +9,10 @@ or if you have a github account [visit our github page](https://github.com/catma
 
 ~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Change Log</summary>
+### Version 1.8
+
++ Removed version number from end of about page.
+
 
 ### Version 1.7, May 6, 2020
 
@@ -31,6 +35,7 @@ or if you have a github account [visit our github page](https://github.com/catma
 + Install to home to screen needs instructions for iOS devices.
 + Automatically change background images periodically.
 + Allow people to easily share on facebook.
++ With the more transparent background on the map, the colors of prayers needs to be more intense.
 
 MARKDOWN
 

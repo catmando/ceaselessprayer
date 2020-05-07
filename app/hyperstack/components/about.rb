@@ -99,8 +99,6 @@ Two of these I put outside the door, and with the rest I buy food. Whoever finds
 pennies outside the door prays for me while I am eating and sleeping:
 
 **and so by God’s grace I fulfil the text, “Pray without ceasing” (1 Thess. 5:17).**
-
-*Version 1.7 May 5, 2020*
 MARKDOWN
 
   render do

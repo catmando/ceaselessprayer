@@ -97,13 +97,12 @@ class Map < HyperComponent
     `#{@map}.panBy([100, 0], {duration: 8000, easing: function(x) { return x }})`
   end
 
-  before_mount { @time_stamp = Time.now }
   after_mount  :draw_map
   after_update :update_map
 
   render do
     WindowDims.portrait? # to force update of map when orientation changes
-    @geojson = Prayer.as_geojson(@time_stamp)
+    @geojson = Prayer.as_geojson
     DIV(style: ics.merge(height: '100%', opacity: 0.5)) do
       DIV(id: :map, style: { width: '100%', overflow: :hidden, height: '100%'} )
     end
