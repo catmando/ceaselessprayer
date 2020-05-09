@@ -42,14 +42,15 @@ class App < HyperComponent
     # which does not use 100vh properly.
     DIV(class: :box, style: { height: WindowDims.height+1 }) do
       Header()
-      Route('/about',    mounts: About)
-      Route('/reload',   mounts: Reload)
-      Route('/pray',     mounts: Pray)
-      Route('/schedule', mounts: Schedule)
-      Route('/home',     mounts: App.reload? ? Reload : Home)
-      Route('/change-log', mounts: ChangeLog)
-      Route('/top-cities', mounts: TopCities)
-      Route('/done',     mounts: Done)
+      Route('/about',           mounts: About)
+      Route('/reload',          mounts: Reload)
+      Route('/pray',            mounts: Pray)
+      Route('/schedule',        mounts: Schedule)
+      Route('/home',            mounts: App.reload? ? Reload : Home)
+      Route('/change-log',      mounts: ChangeLog)
+      Route('/frequent-cities', mounts: FrequentCities)
+      Route('/recent-cities',   mounts: RecentCities)
+      Route('/done',            mounts: Done)
       Route('/', exact: true) { mutate Redirect('/home') }
       Footer() unless App.location.pathname == '/'
     end

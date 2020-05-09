@@ -145,6 +145,32 @@ For You are the Physician of our souls and bodies, and to You do we send up Glor
 to the Father, Son and Holy Spirit, Both now and forever, and to the ages of ages.
 
 Amen.
+</details>
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Prayer of Thanksgiving for Healing</summary>
+
+Holy Father the only true physician of our souls and bodies, who casts down and lifts up,
+accept me as
+I come in all humility to glorify you and thank you for preserving
+by your grace your servant *name* during *his/her* recent *illness/operation*.
+
+We thank you for blessing the attending physicians, nurses, and hospital workers and all the means
+employed for *his/her* cure, and for restoring *him/her* safe and sound to *his/her*
+family and the Church, having fended off every danger against *his/her* body and soul.
+
+> *Should the individual still be ill we add:*</br>
+</br>
+Now raise *him/her* speedily, we pray you, from the bed of illness on which *he/she*
+lies and return *him/her* to *his/her*  complete health and peaceful pursuits.
+
+Grant that the suffering of *his/her* body may avail for the purifying of *his/her* soul
+and may lead *his/her* to return, in thanksgiving, to the works of *his/her*  hands and
+to Christ Jesus, the Physician of soul and body.
+
+Through the prayers of our Holy Fathers, Lord Jesus Christ have mercy on us and save us.
+
+Amen.
+</details>
 ~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">A Complete Reader's Service</summary>
 

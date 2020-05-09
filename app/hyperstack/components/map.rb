@@ -109,7 +109,7 @@ class Map < HyperComponent
   render do
     WindowDims.portrait? # to force update of map when orientation changes
     @geojson = Prayer.as_geojson
-    DIV(style: ics.merge(height: '100%', opacity: 0.5)) do
+    DIV(style: ics.merge(height: '100%', opacity: 0.6)) do
       DIV(id: :map, style: { width: '100%', overflow: :hidden, height: '100%'} )
     end
   end

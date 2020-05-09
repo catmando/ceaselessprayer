@@ -28,10 +28,45 @@ class Prayer < ApplicationRecord
   scope :recent,
         -> { where('created_at > ?', Time.now - 1.day) },
         client: -> { created_at > Time.now - 1.day if created_at }
-        # select: -> { select { |r| r.created_at && r.created_at > Time.now - 1.day} }
 
-  server_method(:top_cities, default: {}) do |_l|
-    Prayer.group('city').group('region_name').group('country').group('flag').count
+  def self.group_by_city
+    group('city')
+      .group('region_name')
+      .group('country')
+      .group('flag')
+  end
+
+  def self.frequent_cities(since)
+    cities = last.frequent_cities(since)
+    return @frequent_cities || {} if cities.try(:loading?)
+
+    @frequent_cities = cities.sort { |c1, c2| c2[:count] <=> c1[:count] }
+  end
+
+  server_method(:frequent_cities, default: {}) do |since|
+    Prayer.where('created_at > ?', Time.now - since)
+          .group_by_city
+          .count
+          .collect do |city, count|
+            { city: city[0], region: city[1], country: city[2], flag: city[3], count: count }
+          end
+  end
+
+  def self.recent_cities
+    cities = last.recent_cities
+    return @recent_cities || {} if cities.try(:loading?)
+
+    @recent_cities =
+      cities.each { |c| c[:created_at] = Time.parse(c[:created_at]) }
+            .sort { |c1, c2| c2[:created_at] <=> c1[:created_at] }
+  end
+
+  server_method(:recent_cities, default: {}) do
+    Prayer.group_by_city
+          .maximum(:created_at)
+          .collect do |city, created_at|
+            { city: city[0], region: city[1], country: city[2], flag: city[3], created_at: created_at }
+          end
   end
 
   def currency
