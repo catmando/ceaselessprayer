@@ -9,9 +9,15 @@ or if you have a github account [visit our github page](https://github.com/catma
 
 ~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Change Log</summary>
-### Version 1.9
+### Version 1.10, May 9, 2020
 
-+ Removed version number from end of about page.
++ Fixed problem with Flags
+
+### Version 1.9, May 9, 2020
+
++ Removed version number from end of About page.
++ Added Recent and Frequent Cities pages.
++ Added Prayer of thanksgiving for recovery from sickness.
 
 ### Version 1.8, May 7, 2020
 

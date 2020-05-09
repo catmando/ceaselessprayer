@@ -11,8 +11,9 @@ What's next?
 + Email us at [ceaselessprayers@gmail.com](mailto:ceaselessprayers@gmail.com)!
 + Checkout the About Page...
 
-*The menu on the top left corner has more information.
-New pages such as resources, and scheduling are coming soon.*
+**NEW: Recent and Frequent Cities Pages!**
+
+*See the menu on the top left corner for other pages.*
 #{"\n**Bookmark us for quick loading, and automatic updates.**" if App.ready_to_install?}
 MARKDOWN
   end

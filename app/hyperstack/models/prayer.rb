@@ -36,6 +36,10 @@ class Prayer < ApplicationRecord
       .group('flag')
   end
 
+  def flag_proxy(flag)
+    "/flag/#{flag.split('/').last}"
+  end
+
   def self.frequent_cities(since)
     cities = last.frequent_cities(since)
     return @frequent_cities || {} if cities.try(:loading?)
@@ -48,7 +52,7 @@ class Prayer < ApplicationRecord
           .group_by_city
           .count
           .collect do |city, count|
-            { city: city[0], region: city[1], country: city[2], flag: city[3], count: count }
+            { city: city[0], region: city[1], country: city[2], flag: flag_proxy(city[3]), count: count }
           end
   end
 
@@ -65,7 +69,7 @@ class Prayer < ApplicationRecord
     Prayer.group_by_city
           .maximum(:created_at)
           .collect do |city, created_at|
-            { city: city[0], region: city[1], country: city[2], flag: city[3], created_at: created_at }
+            { city: city[0], region: city[1], country: city[2], flag: flag_proxy(city[3]), created_at: created_at }
           end
   end
 

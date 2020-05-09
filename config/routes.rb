@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # access progress web app manifest and worker
   get '/service-worker.js' => "service_worker#service_worker"
   get '/manifest.json' => "service_worker#manifest"
+  get '/flag/:flag', to: 'flag#get'
 
   get '/(*others)', to: 'hyperstack#app'
 end
