@@ -25,12 +25,13 @@ class Prayer < ApplicationRecord
     }
   end
 
-  scope :recent, lambda do |n = nil|
-    if n
-      last(n)
-    else
-      where('created_at > ?', Time.now - 1.day)
-    end
+  scope :recent,
+        -> { where('created_at > ?', Time.now - 1.day) },
+        client: -> { created_at > Time.now - 1.day if created_at }
+        # select: -> { select { |r| r.created_at && r.created_at > Time.now - 1.day} }
+
+  server_method(:top_cities, default: {}) do |_l|
+    Prayer.group('city').group('region_name').group('country').group('flag').count
   end
 
   def currency
@@ -38,18 +39,18 @@ class Prayer < ApplicationRecord
   end
 
   def as_feature
-    {
-      type:       :Feature,
-      properties: { currency: currency },
-      geometry:   { type: :Point, coordinates: [ long, lat ] }
-    }
+    @as_feature ||= {
+        type:       :Feature,
+        properties: { currency: currency },
+        geometry:   { type: :Point, coordinates: [ long, lat ] }
+      }
   end
 
   def self.as_geojson
     {
       type: 'FeatureCollection',
       crs: { type: :name, properties: { name: 'ceaselessprayer-recent-prayers' } },
-      features: Prayer.recent.collect(&:as_feature)
+      features: Prayer.recent.collect(&:as_feature).tap { |p| puts "total prayers: #{p.count} "}
     }
   end
 end
