@@ -12,6 +12,7 @@ or if you have a github account [visit our github page](https://github.com/catma
 ### Version 1.10, May 9, 2020
 
 + Fixed problem with Flags
++ Fixed ios PWA issue
 
 ### Version 1.9, May 9, 2020
 

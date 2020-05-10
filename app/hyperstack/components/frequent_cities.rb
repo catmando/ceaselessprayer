@@ -36,12 +36,16 @@ class FrequentCities < HyperComponent
           Mui::Paper(style(:header), elevation: 3) do
             'Top cities in the last 48 hours'
           end
-          Prayer.frequent_cities(2.days).each do |city|
-            Mui::Paper(style(:paper), elevation: 3, key: city.dup.delete(:count)) do
-              DIV(style(:row)) do
-                DIV(style(:count)) { city[:count].to_s }
-                DIV(style(:city))  { "#{city[:city]}, #{city[:region]}" }
-                IMG(style(:flag),  src: city[:flag])
+          OL(style: { listStyleType: :none, paddingLeft: 0 }) do
+            Prayer.frequent_cities(2.days).each do |city|
+              LI(key: city.tap { |c| puts c.to_key }) do
+                Mui::Paper(style(:paper), elevation: 3) do
+                  DIV(style(:row)) do
+                    DIV(style(:count)) { city[:count].to_s }
+                    DIV(style(:city))  { "#{city[:city]}, #{city[:region]}" }
+                    IMG(style(:flag),  src: city[:flag])
+                  end
+                end
               end
             end
           end

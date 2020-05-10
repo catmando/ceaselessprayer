@@ -19,4 +19,4 @@ class Time
       "more than a month ago"
     end
   end
-end
+end    
