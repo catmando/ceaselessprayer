@@ -9,6 +9,11 @@ or if you have a github account [visit our github page](https://github.com/catma
 
 ~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Change Log</summary>
+### Version 1.11, May 10, 2020
+
++ Updated Done page
++ Install instructions added to main menu
+
 ### Version 1.10, May 9, 2020
 
 + Fixed problem with Flags

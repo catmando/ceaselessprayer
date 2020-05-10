@@ -1,7 +1,11 @@
 class Footer < HyperComponent
 
   def self.push_path(path)
-    mutate App.history.push(path)
+    if path == '/next'
+      Header.open_menu!
+    else
+      mutate App.history.push(path)
+    end
   end
 
   styles do
@@ -47,7 +51,7 @@ class Footer < HyperComponent
         if App.location.pathname == '/pray'
           link('/done', 'Done')
         elsif App.location.pathname == '/done'
-          link('/home', 'Close', true)
+          link('/next', 'Done', true) unless Header.menu_open?
         else
           link('/pray', 'Pray Now!')
         end

@@ -1,5 +1,21 @@
 class Header < HyperComponent
 
+  def self.open_menu!
+    mutate @menu_up = true
+  end
+
+  def self.close_menu!
+    mutate @menu_up = false
+  end
+
+  def self.menu_open?
+    observe !!@menu_up
+  end
+
+  def self.anchor
+    `#{jQ['#nav_menu']}[0]`
+  end
+
   def self.height
     [160, [56, WindowDims.width / 1900 * 170].max].min
   end
@@ -23,25 +39,39 @@ class Header < HyperComponent
     Mui::MenuItem(style(:menu_item)) { text }
     .on(:click) do
       Footer.push_path(path)
-      mutate @anchor = nil
+      Header.close_menu!
     end
   end
+
+  def install_link
+    return unless App.ready_to_install?
+
+    Mui::MenuItem(style(:menu_item)) { 'Add to Home Screen' }
+    .on(:click) do
+      App.confirm_install!
+      Footer.push_path('/home')
+      Header.close_menu!
+    end
+  end
+
 
   render(DIV, id: :app_bar, class: 'row header', style: {zIndex: 99, marginBottom: 5}) do
     Mui::AppBar(style(:app_bar), position: :relative, id: 'header') do
       Mui::Toolbar(style(:tool_bar)) do
         Mui::IconButton(edge: :start, color: :inherit, aria: {label: :menu, controls: :menu, haspopup: true}) do
-          Icon::Menu(style(:menu_icon))
-        end.on(:click) { |e| mutate @anchor = e.target }
+          Icon::Menu(style(:menu_icon), id: :nav_menu)
+        end.on(:click) { Header.open_menu! }
         DIV(style(:hero)) { 'Join us in world wide prayer for healing' }
       end
     end
-    Mui::Menu(:keepMounted, id: :menu, anchorEl: @anchor.to_n, open: !!@anchor) do
+    Mui::Menu(:keepMounted, id: :menu, anchorEl: Header.anchor, open: Header.menu_open?) do
       menu_link('/home', 'Home')
+      menu_link('/pray', 'Prayers')
       menu_link('/about', 'About')
       menu_link('/frequent-cities', 'Frequent Cities')
       menu_link('/recent-cities', 'Recent Cities')
+      install_link
       menu_link('/change-log', 'Change Log')
-    end.on(:close) { mutate @anchor = nil } if @anchor
+    end.on(:close) { Header.close_menu! } if Header.menu_open?
   end
 end
