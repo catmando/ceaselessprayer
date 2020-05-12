@@ -36,6 +36,7 @@ class FrequentCities < HyperComponent
           Mui::Paper(style(:header), elevation: 3) do
             'Top cities in the last 48 hours'
           end
+          
           OL(style: { listStyleType: :none, paddingLeft: 0 }) do
             Prayer.frequent_cities(2.days).each do |city|
               LI(key: city.merge(count: 0, flag: nil)) do

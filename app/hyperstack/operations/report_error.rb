@@ -11,9 +11,13 @@ class ReportError < Hyperstack::ControllerOp
 
   param :message
   param :backtrace
+  param :info
+
   step do
+    params.backtrace << params.message if params.backtrace.empty?
     log_error "***************************************************************************"
     params.backtrace.each { |l| log_error l }
+    log_error params.info
     log_error "***************************************************************************\n"
   end
 end

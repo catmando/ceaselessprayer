@@ -77,8 +77,8 @@ class App < HyperComponent
     end
   end
 
-  rescues do |error|
-    ReportError.run(message: error.message, backtrace: error.backtrace)
+  rescues do |error, info|
+    ReportError.run(message: error.message, backtrace: error.backtrace, info: info)
     `window.location.href = '/home'`
     mutate @display_error = true
   end
