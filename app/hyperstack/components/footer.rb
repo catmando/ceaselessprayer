@@ -51,7 +51,7 @@ class Footer < HyperComponent
         if App.location.pathname == '/pray'
           link('/done', 'Done')
         elsif App.location.pathname == '/done'
-          link('/next', 'Done', true) unless Header.menu_open?
+          link('/next', 'Done') unless Header.menu_open?
         else
           link('/pray', 'Pray Now!')
         end

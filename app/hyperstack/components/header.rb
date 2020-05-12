@@ -12,7 +12,7 @@ class Header < HyperComponent
     observe !!@menu_up
   end
 
-  def self.anchor
+  def self.menu_anchor
     `#{jQ['#nav_menu']}[0]`
   end
 
@@ -28,7 +28,7 @@ class Header < HyperComponent
       app_bar: { minHeight: Header.height, paddingTop: 20, paddingBottom: 20, paddingRight: 60 },
       tool_bar: { width: '100%', textAlign: :center, fontSize: font_size},
       menu_icon: { fontSize: font_size },
-      hero: { width: '100%' },
+      hero: { width: '100%', fontSize: font_size },
       menu_item: { fontSize: font_size / 2 }
     }
   end
@@ -61,10 +61,10 @@ class Header < HyperComponent
         Mui::IconButton(edge: :start, color: :inherit, aria: {label: :menu, controls: :menu, haspopup: true}) do
           Icon::Menu(style(:menu_icon), id: :nav_menu)
         end.on(:click) { Header.open_menu! }
-        DIV(style(:hero)) { 'Join us in world wide prayer for healing' }
+        Mui::Typography(style(:hero)) { 'Join us in world wide prayer for healing' }
       end
     end
-    Mui::Menu(:keepMounted, id: :menu, anchorEl: Header.anchor, open: Header.menu_open?) do
+    Mui::Menu(:keepMounted, id: :menu, anchorEl: Header.menu_anchor, open: Header.menu_open?) do
       menu_link('/home', 'Home')
       menu_link('/pray', 'Prayers')
       menu_link('/about', 'About')

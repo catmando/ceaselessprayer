@@ -38,7 +38,7 @@ class FrequentCities < HyperComponent
           end
           OL(style: { listStyleType: :none, paddingLeft: 0 }) do
             Prayer.frequent_cities(2.days).each do |city|
-              LI(key: city.tap { |c| puts c.to_key }) do
+              LI(key: city.merge(count: 0, flag: nil)) do
                 Mui::Paper(style(:paper), elevation: 3) do
                   DIV(style(:row)) do
                     DIV(style(:count)) { city[:count].to_s }

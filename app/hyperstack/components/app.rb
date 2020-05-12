@@ -32,14 +32,35 @@ class App < HyperComponent
     end
   end
 
+  def wake_up!
+    `window.location.reload()` unless @waking_up
+    @waking_up = true
+  end
+
+  after_mount do
+    @time = Time.now
+    every(2.seconds) do
+      wake_up! unless (Time.now - @time).between?(1, 4)
+      @time = Time.now
+    end
+  end
+
   after_render do
     `if (window.my_service_worker) window.my_service_worker.update()` # check for any updates
     nil
   end
 
+  def display_error
+    Mui::Paper(elevation: 3, style: { margin: 30, padding: 10, fontSize: 30, color: :red }) do
+      'Something went wrong, we will be back shortly!'
+    end
+  end
+
   render do
     # dynamically set height so it works on mobile devices like iphone / safari
     # which does not use 100vh properly.
+    return display_error if @display_error
+
     DIV(class: :box, style: { height: WindowDims.height+1 }) do
       Header()
       Route('/about',           mounts: About)
@@ -54,6 +75,12 @@ class App < HyperComponent
       Route('/', exact: true) { mutate Redirect('/home') }
       Footer() unless App.location.pathname == '/'
     end
+  end
+
+  rescues do |error|
+    ReportError.run(message: error.message, backtrace: error.backtrace)
+    `window.location.href = '/home'`
+    mutate @display_error = true
   end
 
   %x{
