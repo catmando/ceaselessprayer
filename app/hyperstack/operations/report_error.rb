@@ -5,6 +5,7 @@ class ReportError < Hyperstack::ControllerOp
   end
 
   def log_error(*args)
+    Rails.logger.error(*args)
     self.class.logger.error(*args)
   end
 
