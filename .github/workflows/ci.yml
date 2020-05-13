@@ -1,4 +1,8 @@
 name: CI
+env:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_DB: postgres
 on:
   push:
     branches:
@@ -14,9 +18,9 @@ jobs:
       postgres:
         # Docker Hub image
         image: postgres
-        # Provide the password for postgres
         env:
-          POSTGRES_PASSWORD: password
+          POSTGRES_USER: ${{ env.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
         ports:
           - 5432:5432
         # Set health checks to wait until postgres has started
