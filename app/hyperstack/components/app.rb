@@ -40,7 +40,7 @@ class App < HyperComponent
   after_mount do
     @time = Time.now
     every(2.seconds) do
-      wake_up! unless (Time.now - @time).between?(1, 4)
+      wake_up! unless (Time.now - @time).between?(1, 7)
       @time = Time.now
     end
   end
