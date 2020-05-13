@@ -1,8 +1,9 @@
 class Prayer < ApplicationRecord
 
-  unless RUBY_ENGINE == 'opal'
-    if (ipstack = Rails.application.credentials.ipstack)
-      IPSTACK_ACCESS_KEY = ipstack[:access_key]
+  # TODO: There's probably a more idiomatic way to set this up
+  def self.ipstack_access_key
+    if (ipstack = Rails.application.credentials.ipstack) && RUBY_ENGINE != 'opal'
+      ipstack[:access_key]
     end
   end
 
@@ -17,7 +18,8 @@ class Prayer < ApplicationRecord
   end
 
   def build_dummy_with_geo_data
-    uri = URI("http://api.ipstack.com/#{ip}?access_key=#{IPSTACK_ACCESS_KEY}")
+    return {} unless Prayer.ipstack_access_key
+    uri = URI("http://api.ipstack.com/#{ip}?access_key=#{Prayer.ipstack_access_key}")
     json = JSON.parse(Net::HTTP.get(uri)).with_indifferent_access
 
     {
