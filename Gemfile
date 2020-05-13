@@ -36,7 +36,7 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'rails-hyperstack', "~> 1.0.alpha1.0"
+gem 'rails-hyperstack', github: "hyperstack-org/hyperstack", branch: "edge", glob: 'ruby/*/*.gemspec'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
