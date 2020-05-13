@@ -66,11 +66,8 @@ or if you have a github account [visit our github page](https://github.com/catma
 MARKDOWN
 
   render do
-    return DIV(ref: :foo) if @die
-
     DIV(style(:container)) do
       papers
-      BUTTON { 'test' }.on(:click) { mutate @die = true }
     end
   end
 end
