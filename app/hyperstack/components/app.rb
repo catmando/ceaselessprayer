@@ -37,13 +37,18 @@ class App < HyperComponent
     @waking_up = true
   end
 
-  # after_mount do
-  #   @time = Time.now
-  #   every(2.seconds) do
-  #     wake_up! unless (Time.now - @time).between?(1, 7)
-  #     @time = Time.now
-  #   end
-  # end
+  before_mount do
+    Hyperstack::Model.load do
+      Prayer.as_geojson
+    end.then do
+      @time = Time.now
+      every(2) do
+        puts "heartbeat! #{Time.now - @time}"
+        wake_up! unless (Time.now - @time).between?(1, 4)
+        @time = Time.now
+      end
+    end
+  end
 
   after_render do
     `if (window.my_service_worker) window.my_service_worker.update()` # check for any updates

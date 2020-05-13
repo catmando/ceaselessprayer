@@ -3,9 +3,15 @@ class Map < HyperComponent
     jQ['#map'].height
   end
 
+  def geojson_slice
+    geojson = Prayer.as_geojson
+    geojson.merge(features: geojson[:features][0..-@geojson_pos]).to_n
+  end
+
   def update_map
     puts "updating map"
-    `#{map}.getSource('recent-prayers').setData(#{@geojson.to_n})`
+    `#{map}.getSource('recent-prayers').setData(#{geojson_slice})`
+    mutate @geojson_pos = [@geojson_pos - 5, 1].max if @geojson_pos > 1
   rescue Exception
     nil
   end
@@ -106,11 +112,26 @@ class Map < HyperComponent
 
   after_render :update_map
 
+  before_mount do
+    Hyperstack::Model.load do
+      puts "loading"
+      Prayer.as_geojson[:features].length
+    end.then do |geojson_pos|
+      puts "geojson pos = #{geojson_pos}"
+      mutate @geojson_pos = geojson_pos
+    end
+  end
+
   render do
+    puts "------rendering pos = #{@geojson_pos}"
+
     WindowDims.portrait? # to force update of map when orientation changes
-    @geojson = Prayer.as_geojson
     DIV(style: ics.merge(height: '100%', opacity: 0.6)) do
-      DIV(id: :map, style: { width: '100%', overflow: :hidden, height: '100%'} )
+      if @geojson_pos
+        DIV(id: :map, style: { width: '100%', overflow: :hidden, height: '100%'} )
+      else
+        Mui::CircularProgress(size: 150, style: {margin: 20}, color: :secondary)
+      end
     end
   end
 end
