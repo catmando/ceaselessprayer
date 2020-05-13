@@ -8,8 +8,6 @@ jobs:
   build:
     name: Test
     runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: postgres://postgres:postgres@localhost/CeaselessPrayer_test
     services:
       # Based on https://help.github.com/en/actions/configuring-and-managing-workflows/creating-postgresql-service-containers
       # Label used to access the service container
@@ -18,7 +16,9 @@ jobs:
         image: postgres
         # Provide the password for postgres
         env:
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
