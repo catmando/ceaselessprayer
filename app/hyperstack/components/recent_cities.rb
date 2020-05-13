@@ -30,24 +30,6 @@ class RecentCities < HyperComponent
       }
     }
   end
-  #
-  # def recent_cities
-  #   cities = Prayer.last.recent_cities
-  #   return @loaded_cities || {} if cities.loading?
-  #
-  #   @loaded_cities = Prayer.recent_cities
-  # end
-
-  after_mount do
-    @last_rendered = Time.now
-    every(15.seconds) do
-      force_update! if @last_rendered < Time.now - 15.seconds
-    end
-  end
-
-  after_update do
-    @last_rendered = Time.now
-  end
 
   render do
     Mui::Container(style(:container), class: 'row content') do
@@ -62,8 +44,8 @@ class RecentCities < HyperComponent
               LI(key: city.merge(count: 0, flag: nil)) do
                 Mui::Paper(style(:paper), elevation: 3) do
                   DIV(style(:row)) do
-                    DIV(style(:metric)) { city[:created_at].distance_from_now_in_words }
-                    DIV(style(:city))   { "#{city[:city]}, #{city[:region]}" }
+                    DistanceFromNow(style(:metric), time: city[:created_at])
+                    DIV(style(:city)) { "#{city[:city]}, #{city[:region]}" }
                     IMG(style(:flag), src: city[:flag])
                   end
                 end
