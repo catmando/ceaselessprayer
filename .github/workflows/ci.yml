@@ -1,8 +1,4 @@
 name: CI
-env:
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: postgres
-  POSTGRES_DB: postgres
 on:
   push:
     branches:
@@ -12,18 +8,18 @@ jobs:
   build:
     name: Test
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/direwolf_test
+      RAILS_ENV: test
     services:
       # Based on https://help.github.com/en/actions/configuring-and-managing-workflows/creating-postgresql-service-containers
       # Label used to access the service container
       postgres:
-        # Docker Hub image
         image: postgres
         env:
-          POSTGRES_USER: ${{ env.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432
-        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
