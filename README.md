@@ -1,26 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sorry for the lack of any decent readme.
 
-Things you may want to cover:
+This app is built on [hyperstack](https://hyperstack.org) plus MaterialUI components.
 
-* Ruby version
 
-* System dependencies
+You should be able to 
++ clone, 
++ bundle install, 
++ bundle exec rails db:setup
++ run `bundle exec foreman start`
++ Visit localhost:5000
 
-* Configuration
+In development mode hyperstack has an integrated hotloader, so any changes will be reflected on screen as you edit.
 
-* Database creation
+Let me know if you have any issues.
 
-* Database initialization
+TBD: 
 
-* How to run the test suite
+Test Specs
+Better Install Instructions
 
-* Services (job queues, cache servers, search engines, etc.)
+Translations
 
-* Deployment instructions
+Contributors are very welcome.  The UX, styling, etc probably could use help.
 
-* ...
-
-https://cthedot.de/icongen/
