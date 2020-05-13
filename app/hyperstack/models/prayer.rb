@@ -1,7 +1,9 @@
 class Prayer < ApplicationRecord
 
   unless RUBY_ENGINE == 'opal'
-    IPSTACK_ACCESS_KEY = Rails.application.credentials.ipstack[:access_key]
+    if (ipstack = Rails.application.credentials.ipstack)
+      IPSTACK_ACCESS_KEY = ipstack[:access_key]
+    end
   end
 
   before_create do
