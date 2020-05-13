@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   get '/flag/:flag', to: 'flag#get'
 
   get '/(*others)', to: 'hyperstack#app'
+
+  scope path: ApplicationResource.endpoint_namespace, defaults: { format: :jsonapi } do
+    resources :prayers, only: [:index, :show, :create]
+  end
 end
