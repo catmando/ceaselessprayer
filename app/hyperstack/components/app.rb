@@ -37,13 +37,13 @@ class App < HyperComponent
     @waking_up = true
   end
 
-  after_mount do
-    @time = Time.now
-    every(2.seconds) do
-      wake_up! unless (Time.now - @time).between?(1, 7)
-      @time = Time.now
-    end
-  end
+  # after_mount do
+  #   @time = Time.now
+  #   every(2.seconds) do
+  #     wake_up! unless (Time.now - @time).between?(1, 7)
+  #     @time = Time.now
+  #   end
+  # end
 
   after_render do
     `if (window.my_service_worker) window.my_service_worker.update()` # check for any updates
