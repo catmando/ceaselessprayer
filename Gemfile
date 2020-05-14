@@ -37,12 +37,15 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'graphiti-rails'
+gem 'kaminari'
 
 gem 'rails-hyperstack', github: "hyperstack-org/hyperstack", branch: "edge", glob: 'ruby/*/*.gemspec'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'graphiti_spec_helpers'
   gem 'rspec-rails', '~> 4.0.0'
 end
 

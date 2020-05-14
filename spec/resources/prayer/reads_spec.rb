@@ -23,7 +23,7 @@ RSpec.describe PrayerResource, type: :resource do
 
       it 'works' do
         render
-        expect(d.map(&:id)).to eq([prayer2.id])
+        expect(jsonapi_data.map(&:id)).to eq([prayer2.id])
       end
     end
   end
@@ -40,7 +40,7 @@ RSpec.describe PrayerResource, type: :resource do
 
         it 'works' do
           render
-          expect(d.map(&:id)).to eq([
+          expect(jsonapi_data.map(&:id)).to eq([
             prayer1.id,
             prayer2.id
           ])
@@ -54,7 +54,7 @@ RSpec.describe PrayerResource, type: :resource do
 
         it 'works' do
           render
-          expect(d.map(&:id)).to eq([
+          expect(jsonapi_data.map(&:id)).to eq([
             prayer2.id,
             prayer1.id
           ])

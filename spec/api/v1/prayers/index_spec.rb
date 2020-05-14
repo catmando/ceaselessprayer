@@ -15,8 +15,8 @@ RSpec.describe "prayers#index", type: :request do
       expect(PrayerResource).to receive(:all).and_call_original
       make_request
       expect(response.status).to eq(200), response.body
-      expect(d.map(&:jsonapi_type).uniq).to match_array(['prayers'])
-      expect(d.map(&:id)).to match_array([prayer1.id, prayer2.id])
+      expect(jsonapi_data.map(&:jsonapi_type).uniq).to match_array(['prayers'])
+      expect(jsonapi_data.map(&:id)).to match_array([prayer1.id, prayer2.id])
     end
   end
 end
