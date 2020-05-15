@@ -1,6 +1,7 @@
 //app/javascript/packs/client_and_server.js
 // these packages will be loaded both during prerendering and on the client
 React = require('react');                      // react-js library
+createReactClass = require('create-react-class')
 History = require('history');                  // react-router history library
 ReactRouter = require('react-router');         // react-router js library
 ReactRouterDOM = require('react-router-dom');  // react-router DOM interface

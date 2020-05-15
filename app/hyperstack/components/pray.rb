@@ -172,6 +172,88 @@ Through the prayers of our Holy Fathers, Lord Jesus Christ have mercy on us and 
 Amen.
 </details>
 ~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Prayer for the Departed</summary>
+Christ our eternal King and God, You have destroyed death and the devil by Your Cross and have restored man to life by Your Resurrection;
+
+give rest, Lord, to the soul of Your servant (name) who has fallen asleep, in Your Kingdom, where there is no pain, sorrow or suffering.
+
+In Your goodness and love for all men, pardon all the sins he (she) has committed in thought word or deed, for there is no man or woman who lives and sins not, You only are without sin.
+
+For You are the Resurrection, the Life, and Repose of Your servant (name), departed this life, O Christ our God; and to You do we send up glory with Your Eternal Father and Your All-holy, Good and Life-creating Spirit;
+
+both now and forever and to the ages of ages. Amen
+
+*Precious in the sight of the Lord is the death of His saints. (Psalm 116)*
+
+*Find rest, O my soul, in God alone;</br>
+My hope comes from him. He alone is my rock and my salvation;</br>
+He is my fortress, I will not be shaken.</br>
+My salvation and my honor depend on God;</br>
+He is my mighty rock, my refuge.</br>
+Trust in him at all times, O people;</br>
+Pour out your hearts to him, for God is our refuge.</br>
+(Psalm 62)*
+
+*Has God forgotten to be merciful?</br>
+Has he in anger withheld his compassion?”</br>
+Then I thought, “To this I will appeal: the years of the right hand of the Most High.”</br>
+I will remember the deeds of the LORD; yes, I will remember your miracles of long ago.</br>
+I will meditate on all your works and consider all your mighty deeds.</br>
+Your ways, O God, are holy. What god is so great as our God?</br>
+You are the God who performs miracles; you display your power among the peoples.</br>
+(Psalm 77)*
+
+</details>
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Prayer of the Hours</summary>
+Thou Who at all times and at every hour, in heaven and on earth, art worshipped and glorified, O Christ God,
+
+Who art long-suffering, plenteous in mercy, most compassionate, Who lovest the righteous and hast mercy on sinners;
+
+Who callest all men to salvation through the promise of good things to come:
+
+Receive, O Lord, our prayers at this hour, and guide our life toward Thy commandments.
+
+Sanctify our souls, make chaste our bodies, correct our thoughts, purify our intentions, and deliver us from every sorrow, evil, and pain.
+
+Compass us about with Thy holy angels, that, guarded and guided by their array, we may attain to the unity of the faith and to the knowledge of Thine unapproachable glory:
+
+For blessed art Thou unto the ages of ages. Amen.
+</details>
+~~~~
+<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Psalm 23</summary>
+
+The Lord is my shepherd;
+I shall not want.
+
+He makes me to lie down in green pastures;
+
+He leads me beside the still waters.
+
+He restores my soul;
+
+He leads me in the paths of righteousness
+for His name’s sake.
+
+Yea, though I walk through the valley of the shadow of death,
+I will fear no evil;
+
+For You are with me;
+Your rod and Your staff, they comfort me.
+
+You prepare a table before me in the presence of my enemies;
+
+You anoint my head with oil;
+
+My cup runs over.
+
+Surely goodness and mercy shall follow me
+all the days of my life;
+
+And I will dwell in the house of the Lord
+forever.
+</details>
+~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">A Complete Reader's Service</summary>
 
 *This service forms a complete prayer that can be said alone or with your household.*
@@ -309,39 +391,6 @@ Corner*
 mercy on us and save us.
 
 **Everyone:** Amen. Lord, have mercy. Lord, have mercy. Lord, have mercy.
-</details>
-~~~~
-<details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Psalm 23</summary>
-
-The Lord is my shepherd;
-I shall not want.
-
-He makes me to lie down in green pastures;
-
-He leads me beside the still waters.
-
-He restores my soul;
-
-He leads me in the paths of righteousness
-for His name’s sake.
-
-Yea, though I walk through the valley of the shadow of death,
-I will fear no evil;
-
-For You are with me;
-Your rod and Your staff, they comfort me.
-
-You prepare a table before me in the presence of my enemies;
-
-You anoint my head with oil;
-
-My cup runs over.
-
-Surely goodness and mercy shall follow me
-all the days of my life;
-
-And I will dwell in the house of the Lord
-forever.
 </details>
 ~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">A meditation</summary>

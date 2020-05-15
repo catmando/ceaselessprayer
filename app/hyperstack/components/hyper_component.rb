@@ -62,10 +62,13 @@ class HyperComponent
 end
 
 # hyperstack issue #308 add class to top level error boundry
+
 module Hyperstack
   class Hotloader
     module AddErrorBoundry
-      alias original_display_error display_error
+      # don't attempt the alias unless the method is defined.
+      # for example if HotLoader is not included in the stack
+      alias original_display_error display_error if method_defined? :display_error
       def display_error(*args)
         DIV(class: 'hyperstack-top-level-error-boundry') { original_display_error(*args) }
       end

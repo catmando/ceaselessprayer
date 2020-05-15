@@ -55,7 +55,7 @@ class PWA
 
     def check_for_updates!
       return if @ready_to_update || !Hyperstack.env.production?
-      # in order to test in the debugger type
+      # in order to see this working in development type
       # Opal.Hyperstack.$env().literal = 'production' into the JS console
       # after the app is loaded.
 
@@ -66,6 +66,9 @@ class PWA
 
     # private methods
     def ready_to_update!
+      return unless Hyperstack.env.production?
+      # see comment in check_for_updates! for use in development
+
       puts 'ready_to_update!'
       @ready_to_update = true
     end

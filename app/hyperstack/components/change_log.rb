@@ -9,6 +9,10 @@ or if you have a github account [visit our github page](https://github.com/catma
 
 ~~~~
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Change Log</summary>
+### Version 1.16, May 15, 2020
+
++ Added prayers and psalms for the departed.
+
 ### Version 1.15, May 12, 2020
 
 + Progressive map load.
