@@ -1,5 +1,4 @@
 class Header < HyperComponent
-
   def self.open_menu!
     mutate @menu_up = true
   end
@@ -36,7 +35,7 @@ class Header < HyperComponent
   def menu_link(path, text)
     return if path == App.location.pathname
 
-    Mui::MenuItem(style(:menu_item)) { text }
+    Mui::MenuItem(styles(:menu_item)) { text }
     .on(:click) do
       Footer.push_path(path)
       Header.close_menu!
@@ -44,24 +43,23 @@ class Header < HyperComponent
   end
 
   def install_link
-    return unless App.ready_to_install?
+    return unless PWA.ready_to_install?
 
-    Mui::MenuItem(style(:menu_item)) { 'Add to Home Screen' }
+    Mui::MenuItem(styles(:menu_item)) { 'Add to Home Screen' }
     .on(:click) do
-      App.confirm_install!
+      PWA.confirm_install!
       Footer.push_path('/home')
       Header.close_menu!
     end
   end
 
-
   render(DIV, id: :app_bar, class: 'row header', style: {zIndex: 99, marginBottom: 5}) do
-    Mui::AppBar(style(:app_bar), position: :relative, id: 'header') do
-      Mui::Toolbar(style(:tool_bar)) do
+    Mui::AppBar(styles(:app_bar), position: :relative, id: 'header') do
+      Mui::Toolbar(styles(:tool_bar)) do
         Mui::IconButton(edge: :start, color: :inherit, aria: {label: :menu, controls: :menu, haspopup: true}) do
-          Icon::Menu(style(:menu_icon), id: :nav_menu)
+          Icon::Menu(styles(:menu_icon), id: :nav_menu)
         end.on(:click) { Header.open_menu! }
-        Mui::Typography(style(:hero)) { 'Join us in world wide prayer for healing' }
+        Mui::Typography(styles(:hero)) { 'Join us in world wide prayer for healing' }
       end
     end
     Mui::Menu(:keepMounted, id: :menu, anchorEl: Header.menu_anchor, open: Header.menu_open?) do

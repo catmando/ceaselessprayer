@@ -1,26 +1,32 @@
 # app/hyperstack/hyper_component.rb
 class HyperComponent
-  # All component classes must include Hyperstack::Component
   include Hyperstack::Component
-  # The Observable module adds state handling
   include Hyperstack::State::Observable
-  # The following turns on the new style param accessor
-  # i.e. param :foo is accessed by the foo method
   param_accessor_style :accessors
 
-  param style: {}, alias: :ics
+  # style helpers
+  #
+  # the styles macro allows a hash of styles to be dyamically computed
+  # they are accessed via the styles method
+  #
+  # the definition in the styles macro can be inherited by subclasses and
+  # overriden
+  #
+  # styles can be passed to any component via the style param
 
-  def style(klass)
-    styles = self.class.style(self, klass)
+  param style: {}
+
+  def styles(klass)
+    styles = self.class.styler(self, klass)
     return unless styles
 
     { style: styles }
   end
 
-  def self.style(component, klass)
+  def self.styler(component, klass)
     return {} if self == HyperComponent
 
-    super_styles = superclass.style(component, klass)
+    super_styles = superclass.styler(component, klass)
     my_styles = component.instance_eval(&@style_block) if @style_block
     my_styles &&= my_styles[klass]
     return super_styles unless my_styles
@@ -31,6 +37,9 @@ class HyperComponent
   def self.styles(&block)
     @style_block = block
   end
+
+  # The following is an experiment to see if we can save the scroll position
+  # between pages.  Its not working, so its disabled
 
   class << self
     def set_top
@@ -51,6 +60,20 @@ class HyperComponent
     self.class.save_top
   end
 end
+
+# hyperstack issue #308 add class to top level error boundry
+module Hyperstack
+  class Hotloader
+    module AddErrorBoundry
+      alias original_display_error display_error
+      def display_error(*args)
+        DIV(class: 'hyperstack-top-level-error-boundry') { original_display_error(*args) }
+      end
+    end
+  end
+end
+
+# Hyperstack Component patches not yet released
 
 module Hyperstack
   module Internal
@@ -133,7 +156,7 @@ module Hyperstack
               next unless value
               unless value.respond_to?(:call)
                 raise "The ref and dom params must be given a Proc.\n"\
-                      "#{type}(#{properties})\n"\
+                      "#{type}(#{properties})  value = #{value} value.respond_to?(:call): #{value.respond_to?(:call)}\n"\
                       "If you want to capture the ref in an instance variable use the `set` method.\n"\
                       "For example `ref: set(:TheRef)` will capture assign the ref to `@TheRef`\n"
               end

@@ -102,7 +102,7 @@ pennies outside the door prays for me while I am eating and sleeping:
 MARKDOWN
 
   render do
-    DIV(style(:container)) do
+    DIV(styles(:container)) do
       papers
     end
   end

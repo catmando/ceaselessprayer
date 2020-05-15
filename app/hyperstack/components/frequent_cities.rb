@@ -30,21 +30,21 @@ class FrequentCities < HyperComponent
   end
 
   render do
-    Mui::Container(style(:container), class: 'row content') do
+    Mui::Container(styles(:container), class: 'row content') do
       Mui::Grid(:container, spacing: 1) do
         Mui::Grid(:item, xs: 12, sm: 8) do
-          Mui::Paper(style(:header), elevation: 3) do
+          Mui::Paper(styles(:header), elevation: 3) do
             'Top cities in the last 48 hours'
           end
-          
+
           OL(style: { listStyleType: :none, paddingLeft: 0 }) do
             Prayer.frequent_cities(2.days).each do |city|
               LI(key: city.merge(count: 0, flag: nil)) do
-                Mui::Paper(style(:paper), elevation: 3) do
-                  DIV(style(:row)) do
-                    DIV(style(:count)) { city[:count].to_s }
-                    DIV(style(:city))  { "#{city[:city]}, #{city[:region]}" }
-                    IMG(style(:flag),  src: city[:flag])
+                Mui::Paper(styles(:paper), elevation: 3) do
+                  DIV(styles(:row)) do
+                    DIV(styles(:count)) { city[:count].to_s }
+                    DIV(styles(:city))  { "#{city[:city]}, #{city[:region]}" }
+                    IMG(styles(:flag),  src: city[:flag])
                   end
                 end
               end

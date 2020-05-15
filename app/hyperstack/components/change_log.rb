@@ -11,7 +11,7 @@ or if you have a github account [visit our github page](https://github.com/catma
 <details><summary style="display: block;font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">Change Log</summary>
 ### Version 1.15, May 12, 2020
 
-+ Progressive map load
++ Progressive map load.
 
 ### Version 1.14.1, May 12, 2020
 
@@ -74,7 +74,7 @@ or if you have a github account [visit our github page](https://github.com/catma
 MARKDOWN
 
   render do
-    DIV(style(:container)) do
+    DIV(styles(:container)) do
       papers
     end
   end

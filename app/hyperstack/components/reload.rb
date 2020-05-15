@@ -1,4 +1,7 @@
-class Reload < HyperComponent
+class Reloading < HyperComponent
+  # Display a different background, and a reload notice while the PWA
+  # worker updates the software.
+  after_mount { after(2.seconds) { PWA.update! } }
   render do
     DIV(style: {
       position: :fixed,
@@ -8,7 +11,9 @@ class Reload < HyperComponent
       backgroundSize: :cover,
       zIndex: 100
     }) do
-      Mui::Paper(elevation: 3, style: {margin: 20, padding: 20}) { 'one moment while we update our software' }
+      Mui::Paper(elevation: 3, style: {margin: 20, padding: 20}) do
+        'One moment while we update our software.'
+      end
     end
   end
 end

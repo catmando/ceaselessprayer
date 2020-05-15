@@ -1,5 +1,5 @@
 class DistanceFromNow < HyperComponent
-
+  # display distance from now type string that will update as time passes
   param :time
 
   def distance_from_now_in_words
@@ -46,6 +46,6 @@ class DistanceFromNow < HyperComponent
   end
 
   render do
-    DIV(style: ics) { distance_from_now_in_words }
+    DIV(style: style) { distance_from_now_in_words }
   end
 end

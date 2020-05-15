@@ -11,17 +11,17 @@ MARKDOWN
   styles do
     case WindowDims.area
     when :large
-      { container: ics.merge(opacity: 0.8, fontSize: 25), paper: { padding: 30, marginTop: 10 } }
+      { container: style.merge(opacity: 0.8, fontSize: 25), paper: { padding: 30, marginTop: 10 } }
     when :medium
-      { container: ics.merge(opacity: 0.8, fontSize: 17), paper: { padding: 5, marginTop: 5 } }
+      { container: style.merge(opacity: 0.8, fontSize: 17), paper: { padding: 5, marginTop: 5 } }
     else
-      { container: ics.merge(opacity: 0.8, fontSize: 14), paper: { padding: 5, marginTop: 5 } }
+      { container: style.merge(opacity: 0.8, fontSize: 14), paper: { padding: 5, marginTop: 5 } }
     end
   end
 
   render do
-    DIV(style(:container), id: :overview) do
-      Mui::Paper(style(:paper), elevation: 3) do
+    DIV(styles(:container), id: :overview) do
+      Mui::Paper(styles(:paper), elevation: 3) do
         MARKDOWN.split("\n\n").each { |p| P(style: { marginTop: 0 }) { p } }
       end
     end

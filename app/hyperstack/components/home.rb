@@ -6,9 +6,8 @@ class Home < HyperComponent
   styles do
     map_size = WindowDims.area == :small ? 50 : 60
     {
-      container: {
-        display: :flex, flexFlow: p?(:column, :row), overflow: :hidden
-      },
+      container:
+        { display: :flex, flexFlow: p?(:column, :row), overflow: :hidden },
       map:
         p?({ margin: 5 }, flex: 1, flexGrow: map_size, margin: 5),
       overview:
@@ -18,9 +17,9 @@ class Home < HyperComponent
 
   render do
     DIV(class: 'row content') do
-      DIV(style(:container)) do
-        Map(style(:map))
-        Overview(style(:overview))
+      DIV(styles(:container)) do
+        Map(styles(:map))
+        Overview(styles(:overview))
       end
     end
   end

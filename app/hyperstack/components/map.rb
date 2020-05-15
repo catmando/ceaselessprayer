@@ -9,7 +9,6 @@ class Map < HyperComponent
   end
 
   def update_map
-    puts "updating map"
     `#{map}.getSource('recent-prayers').setData(#{geojson_slice})`
     mutate @geojson_pos = [@geojson_pos - 5, 1].max if @geojson_pos > 1
   rescue Exception
@@ -27,7 +26,6 @@ class Map < HyperComponent
   def map
     return @map if @map
 
-    puts 'initializing map'
     map = nil
     %x{
       mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0bWFuZG8iLCJhIjoiY2s4emZ2MnVjMXNiMjNnanNicGFpaWVvNiJ9.OqPP4lJF1sUJlRynB2RSaw';
@@ -98,9 +96,11 @@ class Map < HyperComponent
         },
         'waterway-label'
         );
-        #{pan; every(8) { pan }}
-        #{puts 'loaded map!'}
-        #{mutate};
+        #{
+          pan
+          every(8.seconds) { pan }
+          mutate
+        };
       });
     }
     @map = map
@@ -114,19 +114,15 @@ class Map < HyperComponent
 
   before_mount do
     Hyperstack::Model.load do
-      puts "loading"
       Prayer.as_geojson[:features].length
     end.then do |geojson_pos|
-      puts "geojson pos = #{geojson_pos}"
       mutate @geojson_pos = geojson_pos
     end
   end
 
   render do
-    puts "------rendering pos = #{@geojson_pos}"
-
     WindowDims.portrait? # to force update of map when orientation changes
-    DIV(style: ics.merge(height: '100%', opacity: 0.6)) do
+    DIV(style: style.merge(height: '100%', opacity: 0.6)) do
       if @geojson_pos
         DIV(id: :map, style: { width: '100%', overflow: :hidden, height: '100%'} )
       else

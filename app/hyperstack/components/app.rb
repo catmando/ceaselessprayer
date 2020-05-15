@@ -1,60 +1,30 @@
 class App < HyperComponent
   include Hyperstack::Router
 
-  class << self
-    def reload!
-      @reload = true
-    end
-
-    def reload?
-      return unless @reload
-
-      if Hyperstack.env.production?
-        `window.newWorker.postMessage({ action: 'skipWaiting' })`
-      else
-        after(0.5) { mutate }
-      end
-      @reload = false
-      true
-    end
-
-    def install_prompter(prompter)
-      @install_prompter = prompter
-    end
-
-    def ready_to_install?
-      @install_prompter
-    end
-
-    def confirm_install!
-      `#{@install_prompter}.prompt()`
-      @install_prompter = nil
-    end
-  end
-
-  def wake_up!
-    `window.location.reload()` unless @waking_up
-    @waking_up = true
-  end
+  # Heartbeat.  Detect if device has gone to sleep
+  # But load the main data first, otherwise it may take
+  # so long on the first request that we will timeout
+  # and reload the page
 
   before_mount do
     Hyperstack::Model.load do
       Prayer.as_geojson
     end.then do
-      @time = Time.now
-      every(2) do
-        puts "heartbeat! #{Time.now - @time}"
-        wake_up! unless (Time.now - @time).between?(1, 4)
-        @time = Time.now
-      end
+      time = Time.now
+      every(0.25) { time = check_wakeup(time) }
     end
   end
 
-  after_render do
-    `if (window.my_service_worker) window.my_service_worker.update()` # check for any updates
-    nil
+  def check_wakeup(time)
+    unless (Time.now - time).between?(0, 3) || @waking_up
+      puts "*********************** RELOADING AFTER SLEEP ****************************"
+      `window.location.reload()`
+      @waking_up = true
+    end
+    Time.now
   end
 
+  # error fall back display while we are waiting for page reload.  See rescues block below
   def display_error
     Mui::Paper(elevation: 3, style: { margin: 30, padding: 10, fontSize: 30, color: :red }) do
       'Something went wrong, we will be back shortly!'
@@ -62,96 +32,40 @@ class App < HyperComponent
   end
 
   render do
+    return display_error if @display_error
+
     # dynamically set height so it works on mobile devices like iphone / safari
     # which does not use 100vh properly.
-    return display_error if @display_error
 
     DIV(class: :box, style: { height: WindowDims.height+1 }) do
       Header()
       Route('/about',           mounts: About)
-      Route('/reload',          mounts: Reload)
+      Route('/reload',          mounts: Reloading)
       Route('/pray',            mounts: Pray)
-      Route('/schedule',        mounts: Schedule)
-      Route('/home',            mounts: App.reload? ? Reload : Home)
+      Route('/home',            mounts: PWA.ready_to_update? ? Reloading : Home)
       Route('/change-log',      mounts: ChangeLog)
       Route('/frequent-cities', mounts: FrequentCities)
       Route('/recent-cities',   mounts: RecentCities)
       Route('/done',            mounts: Done)
-      Route('/', exact: true) { mutate Redirect('/home') }
+      Route('/', exact: true)   { mutate Redirect('/home') }
+
       Footer() unless App.location.pathname == '/'
     end
   end
 
   rescues do |error, info|
+    return unless Hyperstack.env.production?
+
+    # send the error to the server log, and then reload the page
     ReportError.run(message: error.message, backtrace: error.backtrace, info: info)
     `window.location.href = '/home'`
+    # react needs to see some state change so it knows we won't keep in an endless loop
     mutate @display_error = true
   end
 
-  %x{
-    window.newWorker = null;
-
-      // The click event on the notification
-      // document.getElementById('reload').addEventListener('click', function(){
-      //   newWorker.postMessage({ action: 'skipWaiting' });
-      // });
-
-      if ('serviceWorker' in navigator) {
-        // Register the service worker
-        navigator.serviceWorker.register('/service-worker.js').then(reg => {
-          console.log('got the worker')
-          window.my_service_worker = reg
-          reg.addEventListener('updatefound', () => {
-            console.log('update found')
-            // An updated service worker has appeared in reg.installing!
-            window.newWorker = reg.installing;
-
-            window.newWorker.addEventListener('statechange', () => {
-              console.log('statechange');
-              // Has service worker state changed?
-              switch (window.newWorker.state) {
-                case 'installed':
-                  console.log('installed!');
-    	            // There is a new service worker available, show the notification
-                  if (navigator.serviceWorker.controller) {
-                    console.log('its a controller')
-                    // alert('will load new code')
-                    #{reload!}
-                    // window.newWorker.postMessage({ action: 'skipWaiting' });
-                    // let notification = document.getElementById('notification');
-                    // notification.className = 'show';
-                  }
-
-                  break;
-              }
-            });
-          });
-        }).catch(function(err) {
-          // registration failed :(
-            console.log('ServiceWorker registration failed: ', err);
-          });;
-
-        window.refreshing = null;
-        // The event listener that is fired when the service worker updates
-        // Here we reload the page
-
-       navigator.serviceWorker.addEventListener('controllerchange', function () {
-         if (refreshing) return;
-         window.location.reload();
-         refreshing = true;
-       });
-
-      }
-
-    window.deferredPrompt = #{false};
-
-    window.addEventListener('beforeinstallprompt', function(e) {
-      // Prevent the mini-infobar from appearing on mobile
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      #{App.install_prompter(`e`)};
-      // later deferredPrompt.prompt();
-    })
-  }
-
+  # check for any pwa updates on boot and every 10 minutes after
+  after_mount do
+    PWA.check_for_updates!
+    every(10.minutes) { PWA.check_for_updates! }
+  end
 end

@@ -125,11 +125,12 @@ Style/MultilineBlockChain:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#single-line-blocks'
   Enabled: false
 
-  # Checks if uses of quotes match the configured preference.
 Style/StringLiterals:
   Enabled: false
 
-# Checks if uses of quotes inside expressions in interpolated strings match the
-# configured preference.
 Style/StringLiteralsInInterpolation:
+  Enabled: false
+
+# don't bother with this, as its ignored for Opal
+Style/FrozenStringLiteral:
   Enabled: false

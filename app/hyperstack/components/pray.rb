@@ -404,7 +404,7 @@ MARKDOWN
   end
 
   render do
-    DIV(style(:container), class: :page) do
+    DIV(styles(:container), class: :page) do
       papers
     end.on(:click) { @still_praying = true }
   end

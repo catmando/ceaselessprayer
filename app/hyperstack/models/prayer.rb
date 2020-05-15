@@ -1,10 +1,21 @@
 class Prayer < ApplicationRecord
+  # Prayers are simple records with a create time, ip address, and geo location data
+  # At some point this should be refactored so that there is an ip address table
+  # and all that is stored in the Prayer is the time stamp and link to the ip address table.
+  # Currently we duplicate the geo location with each prayer
 
   unless RUBY_ENGINE == 'opal'
-    IPSTACK_ACCESS_KEY = Rails.application.credentials.ipstack[:access_key]
+    IPSTACK_ACCESS_KEY = ENV['IPSTACK_ACCESS_KEY'] || Rails.application.credentials.ipstack[:access_key]
   end
 
   before_create do
+    # this is a poor man's join table.
+
+    # skip if everything is defined (i.e. during seeding / testing)
+    next if lat && long && country && region_name && city && flag
+
+    # find an existing record with this IP address otherwise
+    # fetch from ipstack.com and fill in the geo data
     existing = Prayer.find_by_ip(ip) || build_dummy_with_geo_data
     self.lat = existing[:lat]
     self.long = existing[:long]
@@ -27,6 +38,10 @@ class Prayer < ApplicationRecord
 
   scope :recent,
         -> { where('created_at > ?', Time.now - 1.day) },
+        # the client option is a hyperstack extension it allows us to
+        # update the scope on the client without talking to the server
+        # if the client proc returns true then the record is included
+        # in the scope
         client: -> { created_at > Time.now - 1.day if created_at }
 
   def self.group_by_city
@@ -86,10 +101,11 @@ class Prayer < ApplicationRecord
   end
 
   def self.as_geojson
+    # returns a hash as expected by MapBox
     {
-      type: 'FeatureCollection',
-      crs: { type: :name, properties: { name: 'ceaselessprayer-recent-prayers' } },
-      features: Prayer.recent.collect(&:as_feature).tap { |p| puts "total prayers: #{p.count} "}
+      type:     'FeatureCollection',
+      crs:      { type: :name, properties: { name: 'ceaselessprayer-recent-prayers' } },
+      features: Prayer.recent.collect(&:as_feature)
     }
   end
 end
