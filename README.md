@@ -1,26 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sorry for the lack of any decent readme.
 
-Things you may want to cover:
+This app is built on [hyperstack](https://hyperstack.org) plus MaterialUI components.
 
-* Ruby version
+The app using ipstack to convert ip addresses into geo location information.  So you will need to get your own ipstack account (free) here: https://ipstack.com/
 
-* System dependencies
+Edit credentials.yml.enc or set the `IPSTACK_ACCESS_KEY` environment variable when running the app.
 
-* Configuration
+You should be able to 
++ clone, 
++ bundle install, 
++ bundle exec rails db:setup
++ run `bundle exec foreman start`
++ Visit localhost:5000
 
-* Database creation
+In development mode hyperstack has an integrated hotloader, so any changes will be reflected on screen as you edit.
 
-* Database initialization
+Let me know if you have any issues.
 
-* How to run the test suite
+TBD: 
 
-* Services (job queues, cache servers, search engines, etc.)
+Test Specs
+Better Install Instructions
 
-* Deployment instructions
+Translations
 
-* ...
+Contributors are very welcome.  The UX, styling, etc probably could use help.
 
-https://cthedot.de/icongen/
