@@ -1,6 +1,6 @@
 # CeaselessPrayer
 
-See [CeaselessPrayer.org](https;//ceaselessprayer.org) for more info.
+See [CeaselessPrayer.org](https://ceaselessprayer.org) for more info.
 
 This app is built on [hyperstack](https://hyperstack.org) plus MaterialUI components.
 
