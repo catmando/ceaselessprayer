@@ -23,5 +23,13 @@ In development mode hyperstack has an integrated hotloader, so any changes will 
 
 Contributors are very welcome.  The UX, styling, etc probably could use help.
 
+Setting up a CI would be great as well.  
+
+Anything else you see we are welcome to new ideas.
+
 Translations would also be a big help.  If you are not a developer but would still like to contribute translations, let us know 
+
+### Comparison Shopping 
+
+This is a relatively small App.  If you would like to use it to demo your favorite framework, feel free to fork a branch and show us what your framework can do!
 
