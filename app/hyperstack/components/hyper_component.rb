@@ -76,6 +76,49 @@ module Hyperstack
   end
 end
 
+module Hyperstack
+  module Router
+    class History
+      def add_query_params(path, query_params)
+        return path if query_params.empty?
+
+        params = query_params.collect do |k, v|
+          "#{`encodeURIComponent(#{k})`}=#{`encodeURIComponent(#{v})`}"
+        end.join('&')
+        "#{path}#{path =~ /\?/ ? '&' : '?'}#{params}"
+      end
+
+      def push(path, query_params = {})
+        `#{@native}.push(#{add_query_params(path, query_params)})`
+        true
+      end
+
+      def replace(path, query_params = {})
+        `#{@native}.replace(#{add_query_params(path, query_params)})`
+        true
+      end
+    end
+  end
+end
+
+module React
+  class Router
+    class History
+      def create_browser_history
+        Hyperstack::Router::History.new(`#{@native}.createBrowserHistory()`)
+      end
+
+      def create_hash_history
+        Hyperstack::Router::History.new(`#{@native}.createHashHistory()`)
+      end
+
+      def create_memory_history
+        Hyperstack::Router::History.new(`#{@native}.createMemoryHistory()`)
+      end
+    end
+  end
+end
+
 # Hyperstack Component patches not yet released
 
 module Hyperstack

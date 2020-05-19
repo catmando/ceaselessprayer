@@ -56,7 +56,7 @@ class Prayer < ApplicationRecord
   end
 
   def self.frequent_cities(since)
-    cities = last.frequent_cities(since)
+    cities = last&.frequent_cities(since) || []
     return @frequent_cities || {} if cities.try(:loading?)
 
     @frequent_cities = cities.sort { |c1, c2| c2[:count] <=> c1[:count] }
@@ -72,7 +72,7 @@ class Prayer < ApplicationRecord
   end
 
   def self.recent_cities
-    cities = last.recent_cities
+    cities = last&.recent_cities || []
     return @recent_cities || {} if cities.try(:loading?)
 
     @recent_cities =

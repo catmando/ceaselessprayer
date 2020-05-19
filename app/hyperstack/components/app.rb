@@ -16,6 +16,7 @@ class App < HyperComponent
   end
 
   def check_wakeup(time)
+    puts "check_wakeup: Time.now = #{Time.now}"
     unless (Time.now - time).between?(0, 3) || @waking_up
       puts "*********************** RELOADING AFTER SLEEP ****************************"
       `window.location.reload()`
@@ -26,7 +27,7 @@ class App < HyperComponent
 
   # error fall back display while we are waiting for page reload.  See rescues block below
   def display_error
-    Mui::Paper(elevation: 3, style: { margin: 30, padding: 10, fontSize: 30, color: :red }) do
+    Mui::Paper(id: :tp_display_error, elevation: 3, style: { margin: 30, padding: 10, fontSize: 30, color: :red }) do
       'Something went wrong, we will be back shortly!'
     end
   end
@@ -39,22 +40,23 @@ class App < HyperComponent
 
     DIV(class: :box, style: { height: WindowDims.height+1 }) do
       Header()
-      Route('/about',           mounts: About)
-      Route('/reload',          mounts: Reloading)
-      Route('/pray',            mounts: Pray)
-      Route('/home',            mounts: PWA.ready_to_update? ? Reloading : Home)
-      Route('/change-log',      mounts: ChangeLog)
-      Route('/frequent-cities', mounts: FrequentCities)
-      Route('/recent-cities',   mounts: RecentCities)
-      Route('/done',            mounts: Done)
-      Route('/', exact: true)   { mutate Redirect('/home') }
-
+      Switch() do
+        Route('/about',           mounts: About)
+        Route('/reload',          mounts: Reloading)
+        Route('/pray',            mounts: Pray)
+        Route('/home',            mounts: PWA.ready_to_update? ? Reloading : Home)
+        Route('/change-log',      mounts: ChangeLog)
+        Route('/frequent-cities', mounts: FrequentCities)
+        Route('/recent-cities',   mounts: RecentCities)
+        Route('/done',            mounts: Done)
+        Route('*')                { mutate Redirect('/home') }
+      end
       Footer() unless App.location.pathname == '/'
     end
   end
 
   rescues do |error, info|
-    return unless Hyperstack.env.production?
+    return if Hyperstack.env.development?
 
     # send the error to the server log, and then reload the page
     ReportError.run(message: error.message, backtrace: error.backtrace, info: info)

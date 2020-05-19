@@ -8,6 +8,7 @@
     "@rails/webpacker": "5.0.1",
     "create-react-class": "^15.6.3",
     "jquery": "^3.4.1",
+    "mapbox-gl": "^1.10.1",
     "muicss": "^0.10.1",
     "react": "16",
     "react-create-class": "^1.0.0",

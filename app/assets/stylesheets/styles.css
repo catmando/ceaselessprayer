@@ -1,0 +1,60 @@
+body {
+  background-image: url('https://cdni.rbth.com/rbthmedia/images/2020.03/article/5e79da0a85600a7fc0544a73.jpg');
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  overflow: hidden;
+}
+
+body:after {
+  background-position: right bottom;
+  content:"";
+  position: fixed; /* stretch a fixed position to the whole screen */
+  top:0;
+  height:100vh; /* fix for mobile browser address bar appearing disappearing */
+  left:0;
+  right:0;
+  z-index:-1; /* needed to keep in the background */
+  background: url('https://cdni.rbth.com/rbthmedia/images/2020.03/article/5e79da0a85600a7fc0544a73.jpg') center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0
+}
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+  /* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+}
+
+.box .row.content {
+  display: flex;
+}
+
+.box .row.content {
+  flex: 1 1 auto;
+}
+
+.hyperstack-top-level-error-boundry {
+  background-color: wheat;
+  font-family: monospace;
+}

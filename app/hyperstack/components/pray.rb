@@ -109,7 +109,7 @@ Undo, O Lord, the dangerous effects of the virus and heal all people, as a most 
 
 For those, who repose in peace, give rest in Your heavenly abode.
 
-Grant peace to the world, so that all people know that You are the Only God, and your faithful are not bound by death, but live forever.
+Grant peace to the world, so that all people may know that You are the Only God, and your faithful are not bound by death, but live forever.
 
 For You are our hope and our whole life is in Your benevolent hands, and to You we give glory, as well as to the Father and the Holy Spirit, now and forever and unto the ages of ages. Amen.
 </details>
