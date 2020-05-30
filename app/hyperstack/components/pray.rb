@@ -12,7 +12,7 @@ In the Name of the Father, and of the Son, and of the Holy Spirit. Amen.
 
 Glory to Thee, our God, glory to Thee!
 
-Christ is risen from the dead trampling down death by death, and upon those in the tombs bestowing life. (3x)
+Holy God! Holy Mighty! Holy Immortal! Have mercy on us. (3x)
 
 Glory to the Father, and to the Son, and to the Holy Spirit, now and ever and unto ages of ages. Amen.
 

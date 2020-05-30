@@ -16,7 +16,6 @@ class App < HyperComponent
   end
 
   def check_wakeup(time)
-    puts "check_wakeup: Time.now = #{Time.now}"
     unless (Time.now - time).between?(0, 3) || @waking_up
       puts "*********************** RELOADING AFTER SLEEP ****************************"
       `window.location.reload()`
