@@ -12,6 +12,8 @@ In the Name of the Father, and of the Son, and of the Holy Spirit. Amen.
 
 Glory to Thee, our God, glory to Thee!
 
+O Heavenly King, the Comforter, the Spirit of Truth, Who art everywhere and fillest all things; Treasury of Blessings, and Giver of Life - come and abide in us, and cleanse us from every impurity, and save our souls, O Good One.
+
 Holy God! Holy Mighty! Holy Immortal! Have mercy on us. (3x)
 
 Glory to the Father, and to the Son, and to the Holy Spirit, now and ever and unto ages of ages. Amen.
