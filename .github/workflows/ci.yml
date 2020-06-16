@@ -16,9 +16,9 @@ jobs:
           path: vendor/bundle
           key: bundle-use-ruby-ubuntu-latest-${{ hashFiles('.ruby-version') }}-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
-            bundle-use-ruby-${{ matrix.os }}-${{ hashFiles('.ruby-version') }}-
+            bundle-use-ruby-ubuntu-latest-${{ hashFiles('.ruby-version') }}-
       - name: bundle install
         run: |
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
-      - run: rake
+      - run: bundle exec rake
